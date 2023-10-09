@@ -1,6 +1,6 @@
 ﻿namespace _3Bimestre.ONG_Animal
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,6 @@
             this.lblInfoAnimal = new System.Windows.Forms.Label();
             this.lblAdoptionSituation = new System.Windows.Forms.Label();
             this.lblBirthDateAnimal = new System.Windows.Forms.Label();
-            this.txtNameAnimal = new System.Windows.Forms.TextBox();
             this.txtTypeAnimal = new System.Windows.Forms.TextBox();
             this.txtGenreAnimal = new System.Windows.Forms.TextBox();
             this.txtInfoAnimal = new System.Windows.Forms.TextBox();
@@ -47,8 +46,9 @@
             this.btnDeleteAnimal = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.dtgAnimal = new System.Windows.Forms.DataGridView();
-            this.txtAdopterName = new System.Windows.Forms.TextBox();
             this.lblAdopterName = new System.Windows.Forms.Label();
+            this.cblAnimal = new System.Windows.Forms.ComboBox();
+            this.cblAdopter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAnimal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,13 +124,6 @@
             this.lblBirthDateAnimal.Size = new System.Drawing.Size(102, 13);
             this.lblBirthDateAnimal.TabIndex = 8;
             this.lblBirthDateAnimal.Text = "Data de nascimento";
-            // 
-            // txtNameAnimal
-            // 
-            this.txtNameAnimal.Location = new System.Drawing.Point(37, 42);
-            this.txtNameAnimal.Name = "txtNameAnimal";
-            this.txtNameAnimal.Size = new System.Drawing.Size(129, 20);
-            this.txtNameAnimal.TabIndex = 9;
             // 
             // txtTypeAnimal
             // 
@@ -219,13 +212,6 @@
             this.dtgAnimal.Size = new System.Drawing.Size(735, 180);
             this.dtgAnimal.TabIndex = 20;
             // 
-            // txtAdopterName
-            // 
-            this.txtAdopterName.Location = new System.Drawing.Point(592, 91);
-            this.txtAdopterName.Name = "txtAdopterName";
-            this.txtAdopterName.Size = new System.Drawing.Size(129, 20);
-            this.txtAdopterName.TabIndex = 14;
-            // 
             // lblAdopterName
             // 
             this.lblAdopterName.AutoSize = true;
@@ -236,23 +222,39 @@
             this.lblAdopterName.TabIndex = 7;
             this.lblAdopterName.Text = "Nome do adotante";
             // 
-            // Form1
+            // cblAnimal
+            // 
+            this.cblAnimal.FormattingEnabled = true;
+            this.cblAnimal.Location = new System.Drawing.Point(34, 42);
+            this.cblAnimal.Name = "cblAnimal";
+            this.cblAnimal.Size = new System.Drawing.Size(132, 21);
+            this.cblAnimal.TabIndex = 21;
+            // 
+            // cblAdopter
+            // 
+            this.cblAdopter.FormattingEnabled = true;
+            this.cblAdopter.Location = new System.Drawing.Point(592, 91);
+            this.cblAdopter.Name = "cblAdopter";
+            this.cblAdopter.Size = new System.Drawing.Size(132, 21);
+            this.cblAdopter.TabIndex = 22;
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cblAdopter);
+            this.Controls.Add(this.cblAnimal);
             this.Controls.Add(this.dtgAnimal);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDeleteAnimal);
             this.Controls.Add(this.btnEditAnimal);
             this.Controls.Add(this.btnNewAnimal);
             this.Controls.Add(this.dtpBirthDateAnimal);
-            this.Controls.Add(this.txtAdopterName);
             this.Controls.Add(this.txtAdoptionSituation);
             this.Controls.Add(this.txtInfoAnimal);
             this.Controls.Add(this.txtGenreAnimal);
             this.Controls.Add(this.txtTypeAnimal);
-            this.Controls.Add(this.txtNameAnimal);
             this.Controls.Add(this.lblBirthDateAnimal);
             this.Controls.Add(this.lblAdopterName);
             this.Controls.Add(this.lblAdoptionSituation);
@@ -262,7 +264,7 @@
             this.Controls.Add(this.lblNameAnimal);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSearch);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgAnimal)).EndInit();
@@ -281,7 +283,6 @@
         private System.Windows.Forms.Label lblInfoAnimal;
         private System.Windows.Forms.Label lblAdoptionSituation;
         private System.Windows.Forms.Label lblBirthDateAnimal;
-        private System.Windows.Forms.TextBox txtNameAnimal;
         private System.Windows.Forms.TextBox txtTypeAnimal;
         private System.Windows.Forms.TextBox txtGenreAnimal;
         private System.Windows.Forms.TextBox txtInfoAnimal;
@@ -292,7 +293,8 @@
         private System.Windows.Forms.Button btnDeleteAnimal;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridView dtgAnimal;
-        private System.Windows.Forms.TextBox txtAdopterName;
         private System.Windows.Forms.Label lblAdopterName;
+        private System.Windows.Forms.ComboBox cblAnimal;
+        private System.Windows.Forms.ComboBox cblAdopter;
     }
 }

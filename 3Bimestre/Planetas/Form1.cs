@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _3Bimestre.ONG_Animal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace _3Bimestre
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPlanetas());
+            Application.Run(new FormMain());
         }
     }
 }

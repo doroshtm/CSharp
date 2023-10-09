@@ -97,11 +97,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ONG_Animal\Form1.cs">
+    <Compile Include="ONG_Animal\Adopter.cs" />
+    <Compile Include="ONG_Animal\Animal.cs" />
+    <Compile Include="ONG_Animal\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ONG_Animal\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ONG_Animal\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="ONG_Animal\frmAjuda.cs">
       <SubType>Form</SubType>
@@ -123,8 +125,8 @@
     </Compile>
     <Compile Include="Planetas\Form1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ONG_Animal\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ONG_Animal\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ONG_Animal\frmAjuda.resx">
       <DependentUpon>frmAjuda.cs</DependentUpon>
