@@ -68,4 +68,4 @@ C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\System.Threa
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\System.ValueTuple.xml
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\TercBimestre.csproj.CopyComplete
-C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.ONG_Animal.FormMain.resources
+C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\ONG_Pet_2a.FrmPrincipal.resources

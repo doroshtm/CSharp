@@ -105,11 +105,26 @@
     <Compile Include="ONG_Animal\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="ONG_Animal\frmAjuda.cs">
+    <Compile Include="ONG_Animal\FrmAdopter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ONG_Animal\frmAjuda.Designer.cs">
-      <DependentUpon>frmAjuda.cs</DependentUpon>
+    <Compile Include="ONG_Animal\FrmAdopter.Designer.cs">
+      <DependentUpon>FrmAdopter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ONG_Animal\FrmAjuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ONG_Animal\FrmAjuda.Designer.cs">
+      <DependentUpon>FrmAjuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ONG_Animal\FrmAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ONG_Animal\FrmAnimal.Designer.cs">
+      <DependentUpon>FrmAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Planetas\FormMain.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Planetas\Planeta.cs">
       <SubType>Form</SubType>
@@ -123,13 +138,13 @@
     <Compile Include="Planetas\Form.Designer.cs">
       <DependentUpon>Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Planetas\Form1.cs" />
+    <Compile Include="Form1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ONG_Animal\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ONG_Animal\frmAjuda.resx">
-      <DependentUpon>frmAjuda.cs</DependentUpon>
+    <EmbeddedResource Include="ONG_Animal\FrmAjuda.resx">
+      <DependentUpon>FrmAjuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Planetas\Form.resx">
       <DependentUpon>Form.cs</DependentUpon>

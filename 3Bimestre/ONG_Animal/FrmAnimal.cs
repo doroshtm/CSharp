@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace _3Bimestre.ONG_Animal
 {
-    public partial class FrmAjuda : Form
+    public partial class FrmAnimal : Form
     {
-        public FrmAjuda()
+        public FrmAnimal()
         {
             InitializeComponent();
-        }
-
-        private void lbl_info_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

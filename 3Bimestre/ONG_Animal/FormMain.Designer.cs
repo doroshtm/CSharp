@@ -1,16 +1,16 @@
-﻿namespace _3Bimestre.ONG_Animal
+﻿namespace ONG_Pet_2a
 {
-    partial class FormMain
+    partial class FrmPrincipal
     {
         /// <summary>
-        /// Required designer variable.
+        /// Variável de designer necessária.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Limpar os recursos que estão sendo usados.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,254 +20,296 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código gerado pelo Windows Form Designer
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Método necessário para suporte ao Designer - não modifique 
+        /// o conteúdo deste método com o editor de código.
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.lblNameAnimal = new System.Windows.Forms.Label();
-            this.lblTypeAnimal = new System.Windows.Forms.Label();
-            this.lblGenreAnimal = new System.Windows.Forms.Label();
-            this.lblInfoAnimal = new System.Windows.Forms.Label();
-            this.lblAdoptionSituation = new System.Windows.Forms.Label();
-            this.lblBirthDateAnimal = new System.Windows.Forms.Label();
-            this.txtTypeAnimal = new System.Windows.Forms.TextBox();
-            this.txtGenreAnimal = new System.Windows.Forms.TextBox();
-            this.txtInfoAnimal = new System.Windows.Forms.TextBox();
-            this.txtAdoptionSituation = new System.Windows.Forms.TextBox();
-            this.dtpBirthDateAnimal = new System.Windows.Forms.DateTimePicker();
-            this.btnNewAnimal = new System.Windows.Forms.Button();
-            this.btnEditAnimal = new System.Windows.Forms.Button();
-            this.btnDeleteAnimal = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.dtgAnimal = new System.Windows.Forms.DataGridView();
-            this.lblAdopterName = new System.Windows.Forms.Label();
-            this.cblAnimal = new System.Windows.Forms.ComboBox();
-            this.cblAdopter = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgAnimal)).BeginInit();
+            this.MenuPrincipal = new System.Windows.Forms.MenuStrip();
+            this.TsmCadastros = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmiAnimais = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmiAdopter = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmAjuda = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmiAjuda = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsRodape = new System.Windows.Forms.StatusStrip();
+            this.DtgAdoption = new System.Windows.Forms.DataGridView();
+            this.TxtBusca = new System.Windows.Forms.TextBox();
+            this.LblBusca = new System.Windows.Forms.Label();
+            this.BtnBusca = new System.Windows.Forms.Button();
+            this.TxtStatus = new System.Windows.Forms.TextBox();
+            this.TxtInformacoes = new System.Windows.Forms.TextBox();
+            this.DtAdoption = new System.Windows.Forms.DateTimePicker();
+            this.LblAnimal = new System.Windows.Forms.Label();
+            this.LblDataAdoption = new System.Windows.Forms.Label();
+            this.LblInformacoes = new System.Windows.Forms.Label();
+            this.LblStatus = new System.Windows.Forms.Label();
+            this.LblAdopter = new System.Windows.Forms.Label();
+            this.BtnNovo = new System.Windows.Forms.Button();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.BtnExcluir = new System.Windows.Forms.Button();
+            this.BtnEditar = new System.Windows.Forms.Button();
+            this.CblAdopter = new System.Windows.Forms.ComboBox();
+            this.CblAnimal = new System.Windows.Forms.ComboBox();
+            this.MenuPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgAdoption)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnSearch
+            // MenuPrincipal
             // 
-            this.btnSearch.Location = new System.Drawing.Point(276, 208);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 0;
-            this.btnSearch.Text = "Buscar";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.MenuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmCadastros,
+            this.TsmAjuda});
+            this.MenuPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.MenuPrincipal.Name = "MenuPrincipal";
+            this.MenuPrincipal.Size = new System.Drawing.Size(827, 24);
+            this.MenuPrincipal.TabIndex = 0;
+            this.MenuPrincipal.Text = "menuStrip1";
             // 
-            // txtSearch
+            // TsmCadastros
             // 
-            this.txtSearch.Location = new System.Drawing.Point(37, 210);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(233, 20);
-            this.txtSearch.TabIndex = 1;
+            this.TsmCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmiAnimais,
+            this.TsmiAdopter});
+            this.TsmCadastros.Name = "TsmCadastros";
+            this.TsmCadastros.Size = new System.Drawing.Size(71, 20);
+            this.TsmCadastros.Text = "Cadastros";
             // 
-            // lblNameAnimal
+            // TsmiAnimais
             // 
-            this.lblNameAnimal.AutoSize = true;
-            this.lblNameAnimal.Location = new System.Drawing.Point(34, 25);
-            this.lblNameAnimal.Name = "lblNameAnimal";
-            this.lblNameAnimal.Size = new System.Drawing.Size(83, 13);
-            this.lblNameAnimal.TabIndex = 2;
-            this.lblNameAnimal.Text = "Nome do animal";
+            this.TsmiAnimais.Name = "TsmiAnimais";
+            this.TsmiAnimais.Size = new System.Drawing.Size(122, 22);
+            this.TsmiAnimais.Text = "Animais";
+            this.TsmiAnimais.Click += new System.EventHandler(this.TsmiAnimais_Click);
             // 
-            // lblTypeAnimal
+            // TsmiAdopter
             // 
-            this.lblTypeAnimal.AutoSize = true;
-            this.lblTypeAnimal.Location = new System.Drawing.Point(210, 25);
-            this.lblTypeAnimal.Name = "lblTypeAnimal";
-            this.lblTypeAnimal.Size = new System.Drawing.Size(76, 13);
-            this.lblTypeAnimal.TabIndex = 3;
-            this.lblTypeAnimal.Text = "Tipo de animal";
+            this.TsmiAdopter.Name = "TsmiAdopter";
+            this.TsmiAdopter.Size = new System.Drawing.Size(122, 22);
+            this.TsmiAdopter.Text = "Adopters";
+            this.TsmiAdopter.Click += new System.EventHandler(this.TsmiAdopter_Click);
             // 
-            // lblGenreAnimal
+            // TsmAjuda
             // 
-            this.lblGenreAnimal.AutoSize = true;
-            this.lblGenreAnimal.Location = new System.Drawing.Point(34, 75);
-            this.lblGenreAnimal.Name = "lblGenreAnimal";
-            this.lblGenreAnimal.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblGenreAnimal.Size = new System.Drawing.Size(42, 13);
-            this.lblGenreAnimal.TabIndex = 4;
-            this.lblGenreAnimal.Text = "Gênero";
+            this.TsmAjuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmiAjuda});
+            this.TsmAjuda.Name = "TsmAjuda";
+            this.TsmAjuda.Size = new System.Drawing.Size(50, 20);
+            this.TsmAjuda.Text = "Ajuda";
             // 
-            // lblInfoAnimal
+            // TsmiAjuda
             // 
-            this.lblInfoAnimal.AutoSize = true;
-            this.lblInfoAnimal.Location = new System.Drawing.Point(210, 75);
-            this.lblInfoAnimal.Name = "lblInfoAnimal";
-            this.lblInfoAnimal.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblInfoAnimal.Size = new System.Drawing.Size(65, 13);
-            this.lblInfoAnimal.TabIndex = 5;
-            this.lblInfoAnimal.Text = "Informações";
+            this.TsmiAjuda.Name = "TsmiAjuda";
+            this.TsmiAjuda.Size = new System.Drawing.Size(105, 22);
+            this.TsmiAjuda.Text = "Ajuda";
+            this.TsmiAjuda.Click += new System.EventHandler(this.TsmiAjuda_Click);
             // 
-            // lblAdoptionSituation
+            // TsRodape
             // 
-            this.lblAdoptionSituation.AutoSize = true;
-            this.lblAdoptionSituation.Location = new System.Drawing.Point(401, 75);
-            this.lblAdoptionSituation.Name = "lblAdoptionSituation";
-            this.lblAdoptionSituation.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblAdoptionSituation.Size = new System.Drawing.Size(103, 13);
-            this.lblAdoptionSituation.TabIndex = 6;
-            this.lblAdoptionSituation.Text = "Situação da adoção";
+            this.TsRodape.Location = new System.Drawing.Point(0, 437);
+            this.TsRodape.Name = "TsRodape";
+            this.TsRodape.Size = new System.Drawing.Size(827, 22);
+            this.TsRodape.TabIndex = 1;
+            this.TsRodape.Text = "statusStrip1";
             // 
-            // lblBirthDateAnimal
+            // DtgAdoption
             // 
-            this.lblBirthDateAnimal.AutoSize = true;
-            this.lblBirthDateAnimal.Location = new System.Drawing.Point(401, 25);
-            this.lblBirthDateAnimal.Name = "lblBirthDateAnimal";
-            this.lblBirthDateAnimal.Size = new System.Drawing.Size(102, 13);
-            this.lblBirthDateAnimal.TabIndex = 8;
-            this.lblBirthDateAnimal.Text = "Data de nascimento";
+            this.DtgAdoption.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgAdoption.Location = new System.Drawing.Point(25, 268);
+            this.DtgAdoption.Name = "DtgAdoption";
+            this.DtgAdoption.Size = new System.Drawing.Size(768, 150);
+            this.DtgAdoption.TabIndex = 2;
+            this.DtgAdoption.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgAdoption_RowHeaderMouseClick);
             // 
-            // txtTypeAnimal
+            // TxtBusca
             // 
-            this.txtTypeAnimal.Location = new System.Drawing.Point(213, 42);
-            this.txtTypeAnimal.Name = "txtTypeAnimal";
-            this.txtTypeAnimal.Size = new System.Drawing.Size(129, 20);
-            this.txtTypeAnimal.TabIndex = 10;
+            this.TxtBusca.Location = new System.Drawing.Point(105, 234);
+            this.TxtBusca.Name = "TxtBusca";
+            this.TxtBusca.Size = new System.Drawing.Size(244, 20);
+            this.TxtBusca.TabIndex = 3;
             // 
-            // txtGenreAnimal
+            // LblBusca
             // 
-            this.txtGenreAnimal.Location = new System.Drawing.Point(37, 91);
-            this.txtGenreAnimal.Name = "txtGenreAnimal";
-            this.txtGenreAnimal.Size = new System.Drawing.Size(129, 20);
-            this.txtGenreAnimal.TabIndex = 11;
+            this.LblBusca.AutoSize = true;
+            this.LblBusca.Location = new System.Drawing.Point(25, 237);
+            this.LblBusca.Name = "LblBusca";
+            this.LblBusca.Size = new System.Drawing.Size(74, 13);
+            this.LblBusca.TabIndex = 4;
+            this.LblBusca.Text = "Pesquisar por:";
             // 
-            // txtInfoAnimal
+            // BtnBusca
             // 
-            this.txtInfoAnimal.Location = new System.Drawing.Point(213, 91);
-            this.txtInfoAnimal.Name = "txtInfoAnimal";
-            this.txtInfoAnimal.Size = new System.Drawing.Size(129, 20);
-            this.txtInfoAnimal.TabIndex = 12;
+            this.BtnBusca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBusca.Location = new System.Drawing.Point(355, 232);
+            this.BtnBusca.Name = "BtnBusca";
+            this.BtnBusca.Size = new System.Drawing.Size(31, 23);
+            this.BtnBusca.TabIndex = 5;
+            this.BtnBusca.UseVisualStyleBackColor = true;
+            this.BtnBusca.Click += new System.EventHandler(this.BtnBusca_Click);
             // 
-            // txtAdoptionSituation
+            // TxtStatus
             // 
-            this.txtAdoptionSituation.Location = new System.Drawing.Point(404, 91);
-            this.txtAdoptionSituation.Name = "txtAdoptionSituation";
-            this.txtAdoptionSituation.Size = new System.Drawing.Size(129, 20);
-            this.txtAdoptionSituation.TabIndex = 13;
+            this.TxtStatus.Location = new System.Drawing.Point(500, 64);
+            this.TxtStatus.Name = "TxtStatus";
+            this.TxtStatus.Size = new System.Drawing.Size(213, 20);
+            this.TxtStatus.TabIndex = 7;
             // 
-            // dtpBirthDateAnimal
+            // TxtInformacoes
             // 
-            this.dtpBirthDateAnimal.Location = new System.Drawing.Point(404, 42);
-            this.dtpBirthDateAnimal.Name = "dtpBirthDateAnimal";
-            this.dtpBirthDateAnimal.Size = new System.Drawing.Size(216, 20);
-            this.dtpBirthDateAnimal.TabIndex = 15;
+            this.TxtInformacoes.Location = new System.Drawing.Point(251, 119);
+            this.TxtInformacoes.Name = "TxtInformacoes";
+            this.TxtInformacoes.Size = new System.Drawing.Size(462, 20);
+            this.TxtInformacoes.TabIndex = 8;
             // 
-            // btnNewAnimal
+            // DtAdoption
             // 
-            this.btnNewAnimal.BackColor = System.Drawing.Color.Lime;
-            this.btnNewAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnNewAnimal.Location = new System.Drawing.Point(34, 142);
-            this.btnNewAnimal.Name = "btnNewAnimal";
-            this.btnNewAnimal.Size = new System.Drawing.Size(132, 34);
-            this.btnNewAnimal.TabIndex = 16;
-            this.btnNewAnimal.Text = "Adicionar";
-            this.btnNewAnimal.UseVisualStyleBackColor = false;
+            this.DtAdoption.Location = new System.Drawing.Point(25, 119);
+            this.DtAdoption.Name = "DtAdoption";
+            this.DtAdoption.Size = new System.Drawing.Size(200, 20);
+            this.DtAdoption.TabIndex = 10;
             // 
-            // btnEditAnimal
+            // LblAnimal
             // 
-            this.btnEditAnimal.BackColor = System.Drawing.Color.Yellow;
-            this.btnEditAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnEditAnimal.Location = new System.Drawing.Point(213, 142);
-            this.btnEditAnimal.Name = "btnEditAnimal";
-            this.btnEditAnimal.Size = new System.Drawing.Size(92, 34);
-            this.btnEditAnimal.TabIndex = 17;
-            this.btnEditAnimal.Text = "Editar";
-            this.btnEditAnimal.UseVisualStyleBackColor = false;
+            this.LblAnimal.AutoSize = true;
+            this.LblAnimal.Location = new System.Drawing.Point(22, 48);
+            this.LblAnimal.Name = "LblAnimal";
+            this.LblAnimal.Size = new System.Drawing.Size(87, 13);
+            this.LblAnimal.TabIndex = 11;
+            this.LblAnimal.Text = "Nome do Animal:";
             // 
-            // btnDeleteAnimal
+            // LblDataAdoption
             // 
-            this.btnDeleteAnimal.BackColor = System.Drawing.Color.Red;
-            this.btnDeleteAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnDeleteAnimal.Location = new System.Drawing.Point(352, 142);
-            this.btnDeleteAnimal.Name = "btnDeleteAnimal";
-            this.btnDeleteAnimal.Size = new System.Drawing.Size(92, 34);
-            this.btnDeleteAnimal.TabIndex = 18;
-            this.btnDeleteAnimal.Text = "Remover";
-            this.btnDeleteAnimal.UseVisualStyleBackColor = false;
+            this.LblDataAdoption.AutoSize = true;
+            this.LblDataAdoption.Location = new System.Drawing.Point(22, 103);
+            this.LblDataAdoption.Name = "LblDataAdoption";
+            this.LblDataAdoption.Size = new System.Drawing.Size(88, 13);
+            this.LblDataAdoption.TabIndex = 12;
+            this.LblDataAdoption.Text = "Data da Adoção:";
             // 
-            // btnClear
+            // LblInformacoes
             // 
-            this.btnClear.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnClear.Location = new System.Drawing.Point(491, 142);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(92, 34);
-            this.btnClear.TabIndex = 19;
-            this.btnClear.Text = "Limpar";
-            this.btnClear.UseVisualStyleBackColor = false;
+            this.LblInformacoes.AutoSize = true;
+            this.LblInformacoes.Location = new System.Drawing.Point(248, 103);
+            this.LblInformacoes.Name = "LblInformacoes";
+            this.LblInformacoes.Size = new System.Drawing.Size(65, 13);
+            this.LblInformacoes.TabIndex = 13;
+            this.LblInformacoes.Text = "Informações";
             // 
-            // dtgAnimal
+            // LblStatus
             // 
-            this.dtgAnimal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgAnimal.Location = new System.Drawing.Point(30, 258);
-            this.dtgAnimal.Name = "dtgAnimal";
-            this.dtgAnimal.Size = new System.Drawing.Size(735, 180);
-            this.dtgAnimal.TabIndex = 20;
+            this.LblStatus.AutoSize = true;
+            this.LblStatus.Location = new System.Drawing.Point(497, 48);
+            this.LblStatus.Name = "LblStatus";
+            this.LblStatus.Size = new System.Drawing.Size(49, 13);
+            this.LblStatus.TabIndex = 14;
+            this.LblStatus.Text = "Situação";
             // 
-            // lblAdopterName
+            // LblAdopter
             // 
-            this.lblAdopterName.AutoSize = true;
-            this.lblAdopterName.Location = new System.Drawing.Point(589, 75);
-            this.lblAdopterName.Name = "lblAdopterName";
-            this.lblAdopterName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblAdopterName.Size = new System.Drawing.Size(95, 13);
-            this.lblAdopterName.TabIndex = 7;
-            this.lblAdopterName.Text = "Nome do adotante";
+            this.LblAdopter.AutoSize = true;
+            this.LblAdopter.Location = new System.Drawing.Point(224, 48);
+            this.LblAdopter.Name = "LblAdopter";
+            this.LblAdopter.Size = new System.Drawing.Size(90, 13);
+            this.LblAdopter.TabIndex = 15;
+            this.LblAdopter.Text = "Pessoa adotante:";
             // 
-            // cblAnimal
+            // BtnNovo
             // 
-            this.cblAnimal.FormattingEnabled = true;
-            this.cblAnimal.Location = new System.Drawing.Point(34, 42);
-            this.cblAnimal.Name = "cblAnimal";
-            this.cblAnimal.Size = new System.Drawing.Size(132, 21);
-            this.cblAnimal.TabIndex = 21;
+            this.BtnNovo.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.BtnNovo.Location = new System.Drawing.Point(25, 167);
+            this.BtnNovo.Name = "BtnNovo";
+            this.BtnNovo.Size = new System.Drawing.Size(105, 40);
+            this.BtnNovo.TabIndex = 16;
+            this.BtnNovo.Text = "Nova Adoção";
+            this.BtnNovo.UseVisualStyleBackColor = false;
+            this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
-            // cblAdopter
+            // BtnCancelar
             // 
-            this.cblAdopter.FormattingEnabled = true;
-            this.cblAdopter.Location = new System.Drawing.Point(592, 91);
-            this.cblAdopter.Name = "cblAdopter";
-            this.cblAdopter.Size = new System.Drawing.Size(132, 21);
-            this.cblAdopter.TabIndex = 22;
+            this.BtnCancelar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BtnCancelar.Location = new System.Drawing.Point(410, 167);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(105, 40);
+            this.BtnCancelar.TabIndex = 17;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Visible = false;
             // 
-            // FormMain
+            // BtnExcluir
+            // 
+            this.BtnExcluir.BackColor = System.Drawing.Color.Tomato;
+            this.BtnExcluir.Location = new System.Drawing.Point(284, 167);
+            this.BtnExcluir.Name = "BtnExcluir";
+            this.BtnExcluir.Size = new System.Drawing.Size(105, 40);
+            this.BtnExcluir.TabIndex = 18;
+            this.BtnExcluir.Text = "Excluir";
+            this.BtnExcluir.UseVisualStyleBackColor = false;
+            this.BtnExcluir.Visible = false;
+            // 
+            // BtnEditar
+            // 
+            this.BtnEditar.BackColor = System.Drawing.Color.Khaki;
+            this.BtnEditar.Location = new System.Drawing.Point(154, 167);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(105, 40);
+            this.BtnEditar.TabIndex = 19;
+            this.BtnEditar.Text = "Editar";
+            this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Visible = false;
+            // 
+            // CblAdopter
+            // 
+            this.CblAdopter.FormattingEnabled = true;
+            this.CblAdopter.Location = new System.Drawing.Point(227, 63);
+            this.CblAdopter.Name = "CblAdopter";
+            this.CblAdopter.Size = new System.Drawing.Size(238, 21);
+            this.CblAdopter.TabIndex = 20;
+            this.CblAdopter.SelectedIndexChanged += new System.EventHandler(this.CblAdopter_SelectedIndexChanged);
+            // 
+            // CblAnimal
+            // 
+            this.CblAnimal.FormattingEnabled = true;
+            this.CblAnimal.Location = new System.Drawing.Point(25, 63);
+            this.CblAnimal.Name = "CblAnimal";
+            this.CblAnimal.Size = new System.Drawing.Size(165, 21);
+            this.CblAnimal.TabIndex = 21;
+            this.CblAnimal.SelectedIndexChanged += new System.EventHandler(this.CblAnimal_SelectedIndexChanged);
+            // 
+            // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cblAdopter);
-            this.Controls.Add(this.cblAnimal);
-            this.Controls.Add(this.dtgAnimal);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnDeleteAnimal);
-            this.Controls.Add(this.btnEditAnimal);
-            this.Controls.Add(this.btnNewAnimal);
-            this.Controls.Add(this.dtpBirthDateAnimal);
-            this.Controls.Add(this.txtAdoptionSituation);
-            this.Controls.Add(this.txtInfoAnimal);
-            this.Controls.Add(this.txtGenreAnimal);
-            this.Controls.Add(this.txtTypeAnimal);
-            this.Controls.Add(this.lblBirthDateAnimal);
-            this.Controls.Add(this.lblAdopterName);
-            this.Controls.Add(this.lblAdoptionSituation);
-            this.Controls.Add(this.lblInfoAnimal);
-            this.Controls.Add(this.lblGenreAnimal);
-            this.Controls.Add(this.lblTypeAnimal);
-            this.Controls.Add(this.lblNameAnimal);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.btnSearch);
-            this.Name = "FormMain";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgAnimal)).EndInit();
+            this.ClientSize = new System.Drawing.Size(827, 459);
+            this.Controls.Add(this.CblAnimal);
+            this.Controls.Add(this.CblAdopter);
+            this.Controls.Add(this.BtnEditar);
+            this.Controls.Add(this.BtnExcluir);
+            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnNovo);
+            this.Controls.Add(this.LblAdopter);
+            this.Controls.Add(this.LblStatus);
+            this.Controls.Add(this.LblInformacoes);
+            this.Controls.Add(this.LblDataAdoption);
+            this.Controls.Add(this.LblAnimal);
+            this.Controls.Add(this.DtAdoption);
+            this.Controls.Add(this.TxtInformacoes);
+            this.Controls.Add(this.TxtStatus);
+            this.Controls.Add(this.BtnBusca);
+            this.Controls.Add(this.LblBusca);
+            this.Controls.Add(this.TxtBusca);
+            this.Controls.Add(this.DtgAdoption);
+            this.Controls.Add(this.TsRodape);
+            this.Controls.Add(this.MenuPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.MenuPrincipal;
+            this.MaximizeBox = false;
+            this.Name = "FrmPrincipal";
+            this.Text = "ONG Pet do CTI - INI2B";
+            this.MenuPrincipal.ResumeLayout(false);
+            this.MenuPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgAdoption)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,26 +317,31 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label lblNameAnimal;
-        private System.Windows.Forms.Label lblTypeAnimal;
-        private System.Windows.Forms.Label lblGenreAnimal;
-        private System.Windows.Forms.Label lblInfoAnimal;
-        private System.Windows.Forms.Label lblAdoptionSituation;
-        private System.Windows.Forms.Label lblBirthDateAnimal;
-        private System.Windows.Forms.TextBox txtTypeAnimal;
-        private System.Windows.Forms.TextBox txtGenreAnimal;
-        private System.Windows.Forms.TextBox txtInfoAnimal;
-        private System.Windows.Forms.TextBox txtAdoptionSituation;
-        private System.Windows.Forms.DateTimePicker dtpBirthDateAnimal;
-        private System.Windows.Forms.Button btnNewAnimal;
-        private System.Windows.Forms.Button btnEditAnimal;
-        private System.Windows.Forms.Button btnDeleteAnimal;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.DataGridView dtgAnimal;
-        private System.Windows.Forms.Label lblAdopterName;
-        private System.Windows.Forms.ComboBox cblAnimal;
-        private System.Windows.Forms.ComboBox cblAdopter;
+        private System.Windows.Forms.MenuStrip MenuPrincipal;
+        private System.Windows.Forms.ToolStripMenuItem TsmCadastros;
+        private System.Windows.Forms.ToolStripMenuItem TsmiAnimais;
+        private System.Windows.Forms.ToolStripMenuItem TsmiAdopter;
+        private System.Windows.Forms.ToolStripMenuItem TsmAjuda;
+        private System.Windows.Forms.ToolStripMenuItem TsmiAjuda;
+        private System.Windows.Forms.StatusStrip TsRodape;
+        private System.Windows.Forms.DataGridView DtgAdoption;
+        private System.Windows.Forms.TextBox TxtBusca;
+        private System.Windows.Forms.Label LblBusca;
+        private System.Windows.Forms.Button BtnBusca;
+        private System.Windows.Forms.TextBox TxtStatus;
+        private System.Windows.Forms.TextBox TxtInformacoes;
+        private System.Windows.Forms.DateTimePicker DtAdoption;
+        private System.Windows.Forms.Label LblAnimal;
+        private System.Windows.Forms.Label LblDataAdoption;
+        private System.Windows.Forms.Label LblInformacoes;
+        private System.Windows.Forms.Label LblStatus;
+        private System.Windows.Forms.Label LblAdopter;
+        private System.Windows.Forms.Button BtnNovo;
+        private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.Button BtnExcluir;
+        private System.Windows.Forms.Button BtnEditar;
+        private System.Windows.Forms.ComboBox CblAdopter;
+        private System.Windows.Forms.ComboBox CblAnimal;
     }
 }
+

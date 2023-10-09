@@ -1,6 +1,6 @@
 ﻿namespace _3Bimestre.ONG_Animal
 {
-    partial class FrmAjuda
+    partial class FrmAdopter
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_info = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // lbl_info
-            // 
-            this.lbl_info.AutoSize = true;
-            this.lbl_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 58.25F);
-            this.lbl_info.Location = new System.Drawing.Point(12, 66);
-            this.lbl_info.Name = "lbl_info";
-            this.lbl_info.Size = new System.Drawing.Size(783, 178);
-            this.lbl_info.TabIndex = 0;
-            this.lbl_info.Text = "INFORMAÇÕES \r\nSOBRE O PROJETO";
-            this.lbl_info.Click += new System.EventHandler(this.lbl_info_Click);
-            // 
-            // frmAjuda
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lbl_info);
-            this.Name = "frmAjuda";
-            this.Text = "frmAjuda";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            this.Text = "frmAdopter";
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbl_info;
     }
 }
