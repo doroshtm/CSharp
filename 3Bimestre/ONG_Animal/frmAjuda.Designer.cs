@@ -1,4 +1,4 @@
-﻿namespace _3Bimestre.ONG_Animal
+﻿namespace Ongdenanimais
 {
     partial class FrmAjuda
     {
@@ -28,28 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_info = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAjuda));
+            this.LblAjuda = new System.Windows.Forms.Label();
+            this.LblInfoAjuda = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lbl_info
+            // LblAjuda
             // 
-            this.lbl_info.AutoSize = true;
-            this.lbl_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 58.25F);
-            this.lbl_info.Location = new System.Drawing.Point(12, 66);
-            this.lbl_info.Name = "lbl_info";
-            this.lbl_info.Size = new System.Drawing.Size(783, 178);
-            this.lbl_info.TabIndex = 0;
-            this.lbl_info.Text = "INFORMAÇÕES \r\nSOBRE O PROJETO";
-            this.lbl_info.Click += new System.EventHandler(this.lbl_info_Click);
+            this.LblAjuda.AutoSize = true;
+            this.LblAjuda.Location = new System.Drawing.Point(30, 34);
+            this.LblAjuda.Name = "LblAjuda";
+            this.LblAjuda.Size = new System.Drawing.Size(37, 13);
+            this.LblAjuda.TabIndex = 0;
+            this.LblAjuda.Text = "Ajuda:";
             // 
-            // frmAjuda
+            // LblInfoAjuda
+            // 
+            this.LblInfoAjuda.AutoSize = true;
+            this.LblInfoAjuda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblInfoAjuda.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblInfoAjuda.Location = new System.Drawing.Point(343, 182);
+            this.LblInfoAjuda.Name = "LblInfoAjuda";
+            this.LblInfoAjuda.Size = new System.Drawing.Size(97, 18);
+            this.LblInfoAjuda.TabIndex = 1;
+            this.LblInfoAjuda.Text = "NÃO HA AJUDA";
+            // 
+            // FrmAjuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lbl_info);
-            this.Name = "frmAjuda";
-            this.Text = "frmAjuda";
+            this.Controls.Add(this.LblInfoAjuda);
+            this.Controls.Add(this.LblAjuda);
+            this.Name = "FrmAjuda";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FrmAjuda_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -57,6 +71,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_info;
+        private System.Windows.Forms.Label LblAjuda;
+        private System.Windows.Forms.Label LblInfoAjuda;
     }
 }

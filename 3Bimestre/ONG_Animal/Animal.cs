@@ -4,23 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3Bimestre.ONG_Animal
+namespace ONG_Animal
 {
+
     internal class Animal
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Nome { get; set; }
+
+        public string Genero { get; set; }
+
+        public DateTime Data_Nascimento { get; set; }
+
+        public Boolean DisponibilidadeAdocao { get; set; }
+        public string Tipo { get; set; }
+
+        public string Vacinacao { get; set; }
+
         public string Status { get; set; }
-        public string Genre { get; set; }
-        public string Vaccine { get; set; }
-        public string Type { get; set; }
-        public DateTime BirthDate { get; set; }
-        public Boolean Adoptable { get; set; }
-
-        public Animal() 
+        public Animal()
         {
-
         }
-
     }
 }

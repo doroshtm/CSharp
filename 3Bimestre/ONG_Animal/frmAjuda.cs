@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _3Bimestre.ONG_Animal
+namespace ONG_Animal
 {
     public partial class FrmAjuda : Form
     {
@@ -17,8 +17,13 @@ namespace _3Bimestre.ONG_Animal
             InitializeComponent();
         }
 
-        private void lbl_info_Click(object sender, EventArgs e)
+        private void FrmAjuda_Load(object sender, EventArgs e)
         {
+            this.LblAjuda.Text = "Aplicação: OMG PEt \n " +
+                                 "vERSÃO 0.0.1 \n" +
+                                 "Desenvolvimento: INI2B \n";
+                                 
+
 
         }
     }
