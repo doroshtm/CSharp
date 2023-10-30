@@ -104,16 +104,16 @@ namespace _3Bimestre.ONG_Animal
 
             try
             {
-                var queryAdotante = "SELECT nome FROM adotante;";
-                var queryAnimal = "SELECT nome FROM animal";
+                var queryAdotante = "SELECT name FROM adopter;";
+                var queryAnimal = "SELECT name FROM animal";
                 dynamic pessoas, animais;
                 using (conexao)
                 {
                     pessoas = conexao.Query<Adotante>(sql: queryAdotante);
                     animais = conexao.Query<Animal>(sql: queryAnimal);
                 }
-                foreach (dynamic p in pessoas) CblAdotante.Items.Add(p.Nome);
-                foreach (dynamic a in animais) CblAnimal.Items.Add(a.Nome);
+                foreach (dynamic p in pessoas) CblAdotante.Items.Add(p.name);
+                foreach (dynamic a in animais) CblAnimal.Items.Add(a.name);
             }
             catch (NpgsqlException ex)
             {

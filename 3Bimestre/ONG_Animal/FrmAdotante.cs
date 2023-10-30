@@ -1,4 +1,5 @@
 ﻿using _3Bimestre.Properties;
+using Dapper;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,8 @@ namespace _3Bimestre.ONG_Animal
         {
             try
             {
-                string query = "SELECT * FROM adopter;";
                 this.conexao.Open();
+                string query = "SELECT * FROM adopter;";
                 using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
                 {
                     using (DataTable dt = new DataTable())
@@ -51,7 +52,7 @@ namespace _3Bimestre.ONG_Animal
             try
             {
                 this.conexao.Open();
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao);
+                conexao.Query(sql: query);
                 this.conexao.Close();
 
             }
@@ -126,9 +127,10 @@ namespace _3Bimestre.ONG_Animal
             string telefone = TxtTelefone.Text;
             string cidade = TxtCidade.Text;
             var date = DtpDataNascimento.Value.Date;
-            string query = "INSERT INTO adopter(name, rg, cpf, birth_date, address, city, state, telephone" +
+            string query = "INSERT INTO adopter(name, rg, cpf, birth_date, address, city, state, telephone)" +
                               $"VALUES('{nome}', '{rg}', '{cpf}', '{date}', '{endereco}', " +
-                              $"'{cidade}', '{estado}', '{telefone}'";
+                              $"'{cidade}', '{estado}', '{telefone}')";
+            executarComandoDB(query);
             fillDataGrid();
         }
 

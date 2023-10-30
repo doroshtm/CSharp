@@ -10,7 +10,7 @@ namespace ONG_Animal
     internal class Animal
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
+        public string name { get; set; }
 
         public string Genero { get; set; }
 

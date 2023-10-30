@@ -146,7 +146,7 @@
             this.BtnNovoAdotante.Name = "BtnNovoAdotante";
             this.BtnNovoAdotante.Size = new System.Drawing.Size(100, 24);
             this.BtnNovoAdotante.TabIndex = 53;
-            this.BtnNovoAdotante.Text = "                  ";
+            this.BtnNovoAdotante.Text = "Adicionar";
             this.BtnNovoAdotante.UseVisualStyleBackColor = false;
             this.BtnNovoAdotante.Click += new System.EventHandler(this.BtnNovoAdotante_Click);
             // 
