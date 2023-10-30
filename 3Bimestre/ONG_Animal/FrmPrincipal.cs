@@ -28,10 +28,32 @@ namespace _3Bimestre.ONG_Animal
             conexao = Utilidade.ConectarComDB();
 
             Utilidade.ExecutarComandoDB("SELECT * FROM adocao;",conexao,DtgAdocao);
+            fillDataGrid();
 
             Listas();
         }
+        private void fillDataGrid()
+        {
+            try
+            {
+                string query = "SELECT * FROM adoption;";
+                this.conexao.Open();
+                using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        da.Fill(dt);
+                        DtgAdocao.DataSource = dt;
+                    }
+                }
+                this.conexao.Close();
 
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+        }
 
 
         private void TsmiAnimal_Click(object sender, EventArgs e)

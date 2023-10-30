@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdotante));
             this.LblDataNascimento = new System.Windows.Forms.Label();
             this.DtpDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.LblRg = new System.Windows.Forms.Label();
@@ -227,12 +226,14 @@
             // 
             // BtnBusca
             // 
+            this.BtnBusca.BackgroundImage = global::_3Bimestre.Properties.Resources.BtnBusca_BackgroundImage;
             this.BtnBusca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBusca.Location = new System.Drawing.Point(352, 216);
             this.BtnBusca.Name = "BtnBusca";
             this.BtnBusca.Size = new System.Drawing.Size(29, 23);
             this.BtnBusca.TabIndex = 43;
             this.BtnBusca.UseVisualStyleBackColor = true;
+            this.BtnBusca.Click += new System.EventHandler(this.BtnBusca_Click);
             // 
             // TxtBusca
             // 

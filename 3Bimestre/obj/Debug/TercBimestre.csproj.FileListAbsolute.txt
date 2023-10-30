@@ -69,6 +69,7 @@ C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\System.Value
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\TercBimestre.csproj.CopyComplete
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.ONG_Animal.FrmPrincipal.resources
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\ONG_Animal.FrmAjuda.resources
+<<<<<<< HEAD
 C:\Users\ra2257005\source\repos\CREIDIAR\3Bimestre\bin\Debug\3Bimestre.exe.config
 C:\Users\ra2257005\source\repos\CREIDIAR\3Bimestre\bin\Debug\3Bimestre.exe
 C:\Users\ra2257005\source\repos\CREIDIAR\3Bimestre\bin\Debug\3Bimestre.pdb
@@ -116,3 +117,6 @@ C:\Users\ra2257005\source\repos\CREIDIAR\3Bimestre\obj\Debug\TercBimestre.csproj
 C:\Users\ra2257005\source\repos\CREIDIAR\3Bimestre\obj\Debug\TercBimestre.csproj.CopyComplete
 C:\Users\ra2257005\source\repos\CREIDIAR\3Bimestre\obj\Debug\3Bimestre.exe
 C:\Users\ra2257005\source\repos\CREIDIAR\3Bimestre\obj\Debug\3Bimestre.pdb
+=======
+C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.ONG_Animal.FrmAdotante.resources
+>>>>>>> 90c240385fbed8721d8a62c2da1c7e325f8bdf4e

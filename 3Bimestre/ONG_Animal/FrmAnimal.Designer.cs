@@ -177,6 +177,7 @@
             // 
             // BtnBusca
             // 
+            this.BtnBusca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBusca.Location = new System.Drawing.Point(353, 158);
             this.BtnBusca.Name = "BtnBusca";
             this.BtnBusca.Size = new System.Drawing.Size(29, 23);
