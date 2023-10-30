@@ -99,6 +99,8 @@
   <ItemGroup>
     <Compile Include="ONG_Animal\Adotante.cs" />
     <Compile Include="ONG_Animal\Animal.cs" />
+    <Compile Include="ONG_Animal\Menu.cs" />
+    <Compile Include="ONG_Animal\Util.cs" />
     <Compile Include="ONG_Animal\FrmAdotante.cs">
       <SubType>Form</SubType>
     </Compile>
