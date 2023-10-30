@@ -15,7 +15,7 @@ using ONG_Animal;
 
 namespace _3Bimestre.ONG_Animal
 {
-    public partial class FrmPrincipal : Form, Menu
+    public abstract partial class FrmPrincipal : Form, Menu
     {
         Util Utilidade= new Util();
         NpgsqlConnection conexao;
@@ -58,8 +58,8 @@ namespace _3Bimestre.ONG_Animal
 
         private void TsmiAnimal_Click(object sender, EventArgs e)
         {
-            FrmAnimal frmAnimal = new FrmAnimal();
-            frmAnimal.ShowDialog();
+            FrmAnimal frmAdotante = new FrmAnimal();
+            frmAdotante.ShowDialog();
         }
 
         private void TsmiAdotante_Click(object sender, EventArgs e)
@@ -170,7 +170,7 @@ namespace _3Bimestre.ONG_Animal
             Utilidade.ExecutarComandoDB(query,conexao,DtgAdocao);
         }
 
-        protected void Adicionar()
+        public void Adicionar()
         {
 
             string animal = this.CblAnimal.Text;
@@ -181,7 +181,9 @@ namespace _3Bimestre.ONG_Animal
                               $"VALUES('{animal}','{adotante}','{Status}','{informacoes}';";
             Utilidade.ExecutarComandoDB(query, conexao, DtgAdocao);
         }
-
+        public abstract void Editar();
+        public abstract void Excluir();
+        public abstract void Cancelar();
         private void CblAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

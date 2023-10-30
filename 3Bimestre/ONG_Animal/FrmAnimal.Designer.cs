@@ -1,4 +1,4 @@
-﻿namespace ONG_Animal
+﻿namespace _3Bimestre.ONG_Animal
 {
     partial class FrmAnimal
     {
@@ -291,7 +291,7 @@
             this.Controls.Add(this.StripRodape);
             this.Name = "FrmPrincipal";
             this.Text = "  ";
-            this.Load += new System.EventHandler(this.FrmAnimal_Load_1);
+            //this.Load += new System.EventHandler(this.FrmAnimal_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAnimal)).EndInit();
             this.StripRodape.ResumeLayout(false);
             this.StripRodape.PerformLayout();

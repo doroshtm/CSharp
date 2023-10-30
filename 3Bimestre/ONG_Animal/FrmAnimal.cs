@@ -11,36 +11,30 @@ using _3Bimestre.ONG_Animal;
 using Dapper;
 using Npgsql;
 using ONG_Animal;
+using _3Bimestre.Properties;
 
-namespace ONG_Animal
+
+namespace _3Bimestre.ONG_Animal
 {
-    public partial class FrmAnimal : Form
+    public partial class FrmAnimal : Form, Menu
     {
         NpgsqlConnection conexao;
-
+        Util Utilidade = new Util();
         int IdAnimal = 0;
 
         public FrmAnimal()
         {
             InitializeComponent();
-
-            conexao = new NpgsqlConnection(connectionString:
-                "Server=localhost; " +
-                "Port=5432; " +
-                "User ID=postgres; " +
-                "Password=postgres; " +
-                "Database=projeto_2b; " +
-                "Pooling=true;"
-            );
+            conexao = Utilidade.ConectarComDB();
 
             CarregarDados(null);
         }
 
-        private void TsmiAnimais_Click(object sender, EventArgs e)
+       /* private void TsmiAnimais_Click(object sender, EventArgs e)
         {
             FrmAnimal frmAnimal = new FrmAnimal();
             frmAnimal.ShowDialog();
-        }
+        }*/
 
         private void TsmiAdotante_Click(object sender, EventArgs e)
         {
@@ -94,44 +88,13 @@ namespace ONG_Animal
 
         private void BtnNovo_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TxtAnimalNome.Text) &&
-                !string.IsNullOrEmpty(TxtAnimalTipo.Text) &&
-                !string.IsNullOrEmpty(TxtGenero.Text) &&
-                !string.IsNullOrEmpty(TxtSituacao.Text) &&
-                !string.IsNullOrEmpty(TxtVacinacao.Text) &&
-                !string.IsNullOrEmpty(TxtDisponivel.Text))
+            if (Utilidade.nenhumCampoVazio(TxtAnimalNome.Text,
+                TxtGenero.Text, TxtAnimalTipo.Text, TxtSituacao.Text,
+                TxtVacinacao.Text, TxtDisponivel.Text))
             {
                 try
                 {
-                    //Tratamento da data de adoção
-                    var day = DtpDataNascimento.Value.Day;
-                    var month = DtpDataNascimento.Value.Month;
-                    var year = DtpDataNascimento.Value.Year;
-                    string dataAnimal = year + "/" + month + "/" + day;
-                    string tipo = TxtAnimalTipo.Text;
-                    string animal = TxtAnimalNome.Text;
-                    string genero = TxtGenero.Text;
-                    string status = TxtSituacao.Text;
-                    string vacinacao = TxtVacinacao.Text;
-                    string disponivel = TxtDisponivel.Text;
-
-                    if (this.IdAnimal != 0)
-                    {
-                        var query = "INSERT INTO animal (id,nome,tipo,genero,data_nascimento,vacinacao,disponibilidade_adocao,status)" +
-                            " VALUES " +
-                            $"({this.IdAnimal},'{animal}','{tipo}','{genero}','{dataAnimal}','{vacinacao}','{disponivel}'" +
-                            $"'{status}')";
-
-                        conexao.Query(sql: query); //Executa a inserção de dados
-                        MessageBox.Show("Novao animal adicionado com sucesso!");
-                        LimpaCampos();
-                        CarregarDados(null); //Carrega lista atualizada com o novo registro
-                    }
-                    else
-                    {
-                        MessageBox.Show("Animal não encontrado!");
-                        tslAnimal.Text = "Animal não encontrado!";
-                    }
+                    
                 }
                 catch (NpgsqlException ex)
                 {
@@ -141,24 +104,49 @@ namespace ONG_Animal
             }
             else
             {
+                List<dynamic> campos = new List<dynamic>() { TxtAnimalNome.Text,
+                TxtGenero.Text, TxtAnimalTipo.Text, TxtSituacao.Text,
+                TxtVacinacao.Text, TxtDisponivel.Text };
                 MessageBox.Show("Campos obrigatórios não preenchidos!");
-                if (string.IsNullOrEmpty(TxtAnimalNome.Text))
-                    LblNomeAnimal.Font = new Font(this.Font, FontStyle.Bold);
-                if (string.IsNullOrEmpty(TxtAnimalTipo.Text))
-                    LblTipoAnimal.Font = new Font(this.Font, FontStyle.Bold);
-                if (string.IsNullOrEmpty(TxtGenero.Text))
-                    LblGenero.Font = new Font(this.Font, FontStyle.Bold);
-                if (string.IsNullOrEmpty(TxtVacinacao.Text))
-                    LblVacinacao.Font = new Font(this.Font, FontStyle.Bold);
-                if (string.IsNullOrEmpty(TxtAnimalTipo.Text))
-                    LblTipoAnimal.Font = new Font(this.Font, FontStyle.Bold);
-                if (string.IsNullOrEmpty(TxtSituacao.Text))
-                    LblStatusAnimal.Font = new Font(this.Font, FontStyle.Bold);
-                if (string.IsNullOrEmpty(TxtDisponivel.Text))
-                    LblDispo.Font = new Font(this.Font, FontStyle.Bold);
+                foreach(dynamic campo in campos)
+                {
+                    if (string.IsNullOrEmpty(campo))
+                        Utilidade.mudarFonteParaNegrito(campo);
+                }
             }
         }
+        public void Adicionar()
+        {
+            //Tratamento da data de adoção
+            var day = DtpDataNascimento.Value.Day;
+            var month = DtpDataNascimento.Value.Month;
+            var year = DtpDataNascimento.Value.Year;
+            string dataAnimal = year + "/" + month + "/" + day;
+            string tipo = TxtAnimalTipo.Text;
+            string animal = TxtAnimalNome.Text;
+            string genero = TxtGenero.Text;
+            string status = TxtSituacao.Text;
+            string vacinacao = TxtVacinacao.Text;
+            string disponivel = TxtDisponivel.Text;
 
+            if (this.IdAnimal != 0)
+            {
+                var query = "INSERT INTO animal (id,nome,tipo,genero,data_nascimento,vacinacao,disponibilidade_adocao,status)" +
+                    " VALUES " +
+                    $"({this.IdAnimal},'{animal}','{tipo}','{genero}','{dataAnimal}','{vacinacao}','{disponivel}'" +
+                    $"'{status}')";
+
+                conexao.Query(sql: query); //Executa a inserção de dados
+                MessageBox.Show("Novao animal adicionado com sucesso!");
+                LimpaCampos();
+                CarregarDados(null); //Carrega lista atualizada com o novo registro
+            }
+            else
+            {
+                MessageBox.Show("Animal não encontrado!");
+                tslAnimal.Text = "Animal não encontrado!";
+            }
+        }
         private void LimpaCampos()
         {
             TxtAnimalNome.ResetText();
@@ -209,7 +197,7 @@ namespace ONG_Animal
                 tslAnimal.Text = ex.Message;
             }
         }
-        private void Reset()
+        public void Cancelar()
         {
             BtnEditar.Visible = false;
             BtnExcluir.Visible = false;
@@ -219,23 +207,26 @@ namespace ONG_Animal
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             LimpaCampos();
-            Reset();
+            Cancelar();
             CarregarDados(null);
         }
-
+        public void Editar()
+        {
+            var update = $"UPDATE animal SET nome='{TxtAnimalNome.Text}',tipo='{TxtAnimalTipo.Text}', " +
+             $"genero='{TxtGenero.Text}',data_nascimento={DtpDataNascimento}" +
+             $"vacinacao = '{TxtVacinacao.Text}',disponibilidade_adocao='{TxtDisponivel.Text}'," +
+             $"status='{TxtSituacao.Text}' WHERE id = {this.IdAnimal}";
+            conexao.Query(sql: update);
+            MessageBox.Show("Dados atualizados com sucesso!!!");
+            LimpaCampos();
+            Cancelar();
+            CarregarDados(null);
+        }
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             try
             {
-                var update = $"UPDATE animal SET nome='{TxtAnimalNome.Text}',tipo='{TxtAnimalTipo.Text}', " +
-                             $"genero='{TxtGenero.Text}',data_nascimento={DtpDataNascimento}" +
-                             $"vacinacao = '{TxtVacinacao.Text}',disponibilidade_adocao='{TxtDisponivel.Text}'," +
-                             $"status='{TxtSituacao.Text}' WHERE id = {this.IdAnimal}";
-                conexao.Query(sql: update);
-                MessageBox.Show("Dados atualizados com sucesso!!!");
-                LimpaCampos();
-                Reset();
-                CarregarDados(null);
+                Editar();
             }
             catch (NpgsqlException ex)
             {
@@ -243,7 +234,22 @@ namespace ONG_Animal
                 tslAnimal.Text = ex.Message;
             }
         }
-
+        private bool ConcordouComPopup(string texto, string titulo)
+        {
+            DialogResult resultado = MessageBox.Show("Deseja excluir este registro?",
+                                         "Atenção!!!",
+                                         MessageBoxButtons.YesNo);
+            return resultado == DialogResult.Yes;
+        }
+        public void Excluir()
+        {
+            var delete = $"DELETE FROM animal WHERE id = {this.IdAnimal}";
+            conexao.Query(sql: delete);
+            MessageBox.Show("Animal excluído com sucesso!!!"); 
+            LimpaCampos();
+            Cancelar();
+            CarregarDados(null);
+        }
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("Deseja excluir este registro?",
@@ -253,12 +259,7 @@ namespace ONG_Animal
             {
                 try
                 {
-                    var delete = $"DELETE FROM animal WHERE id = {this.IdAnimal}";
-                    conexao.Query(sql: delete);
-                    MessageBox.Show("Animal excluído com sucesso!!!");
-                    LimpaCampos();
-                    Reset();
-                    CarregarDados(null);
+                    Excluir();
                 }
                 catch (NpgsqlException ex)
                 {
