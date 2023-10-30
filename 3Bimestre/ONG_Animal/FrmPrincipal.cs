@@ -15,8 +15,9 @@ using ONG_Animal;
 
 namespace _3Bimestre.ONG_Animal
 {
-    public partial class FrmPrincipal : Form
+    public partial class FrmPrincipal : Form, Menu
     {
+        Util Utilidade= new Util();
         NpgsqlConnection conexao;
         int IdAnimal = 0;
         int IdAdotante = 0;
@@ -24,15 +25,35 @@ namespace _3Bimestre.ONG_Animal
         public FrmPrincipal()
         {
             InitializeComponent();
-            conexao = new NpgsqlConnection(
-                connectionString: "Server=localhost;" + "Port=5432;" +
-                "User ID=postgres;" + "Password=postgres;" + "Database=projeto_2b;" + "Pooling=true;");
+            conexao = Utilidade.ConectarComDB();
 
-            ExecutarComandoDB("SELECT * FROM adocao;");
+            Utilidade.ExecutarComandoDB("SELECT * FROM adocao;",conexao,DtgAdocao);
+            fillDataGrid();
 
             Listas();
         }
+        private void fillDataGrid()
+        {
+            try
+            {
+                string query = "SELECT * FROM adoption;";
+                this.conexao.Open();
+                using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        da.Fill(dt);
+                        DtgAdocao.DataSource = dt;
+                    }
+                }
+                this.conexao.Close();
 
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+        }
 
 
         private void TsmiAnimal_Click(object sender, EventArgs e)
@@ -53,27 +74,7 @@ namespace _3Bimestre.ONG_Animal
             frmaAjuda.ShowDialog();
         }
 
-
-        private void ExecutarComandoDB(string query)
-        {
-            try
-            {
-
-                using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
-                {
-                    using (DataTable dt = new DataTable())
-                    {
-                        da.Fill(dt);
-                        DtgAdocao.DataSource = dt;
-                    }
-                }
-
-            }
-            catch (NpgsqlException ex)
-            {
-                MessageBox.Show("Erro: " + ex.Message);
-            }
-        }
+        
 
 
 
@@ -126,25 +127,31 @@ namespace _3Bimestre.ONG_Animal
 
         private void BtnNovaAdocao_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(CblAnimal.Text) &&
-               !string.IsNullOrEmpty(CblAdotante.Text) &&
-               !string.IsNullOrEmpty(CblStatus.Text) &&
-               !string.IsNullOrEmpty(CblInformaçoes.Text))
+            if (
+                Utilidade.nenhumCampoVazio( 
+                    CblAnimal.Text,
+                    CblAdotante.Text,
+                    CblStatus.Text, 
+                    CblInformaçoes.Text)
+                )
             {
-                NovoAdocao();
+                Adicionar();
             }
             else
             {
-                MessageBox.Show("Campos obrigatorios não preenhidos!!");
-
-                if (string.IsNullOrEmpty(CblAnimal.Text))
-                    LblAnimal.Font = new Font(this.Font, FontStyle.Bold);
-                if (string.IsNullOrEmpty(CblAdotante.Text))
-                    LblAdotante.Font = new Font(this.Font, FontStyle.Bold);
-                if (string.IsNullOrEmpty(CblStatus.Text))
-                    LblStatus.Font = new Font(this.Font, FontStyle.Bold);
-                if (string.IsNullOrEmpty(CblInformaçoes.Text))
-                    LblInformacoes.Font = new Font(this.Font, FontStyle.Bold);
+                MessageBox.Show("Campos obrigatorios não preenchidos!!");
+                List<dynamic> campos = new List<dynamic> { CblAnimal.Text,
+                    CblAdotante.Text,
+                    CblStatus.Text,
+                    CblInformaçoes.Text
+                };
+                foreach(dynamic campo in campos)
+                {
+                    if (string.IsNullOrEmpty(campo))
+                    {
+                        Utilidade.mudarFonteParaNegrito(campo);
+                    }
+                }
 
             }
 
@@ -160,10 +167,10 @@ namespace _3Bimestre.ONG_Animal
                 "FROM adocao AS ac ,INNER JOIN animal AS an ON ac.animal = an.id ,INNER JOIN adotante AS ad ON ac.adotante = ad.id," +
                 $"WHERE ad.nome LIKE '%{busca}%' or an.nome LIKE '%{busca}%';";
 
-            ExecutarComandoDB(query);
+            Utilidade.ExecutarComandoDB(query,conexao,DtgAdocao);
         }
 
-        private void NovoAdocao()
+        protected void Adicionar()
         {
 
             string animal = this.CblAnimal.Text;
@@ -172,7 +179,7 @@ namespace _3Bimestre.ONG_Animal
             string informacoes = this.CblInformaçoes.Text;
             string query = "INSERT INTO adotante(animal, adotante, status, informacoes)" +
                               $"VALUES('{animal}','{adotante}','{Status}','{informacoes}';";
-            ExecutarComandoDB(query);
+            Utilidade.ExecutarComandoDB(query, conexao, DtgAdocao);
         }
 
         private void CblAnimal_SelectedIndexChanged(object sender, EventArgs e)

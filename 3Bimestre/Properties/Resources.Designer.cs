@@ -83,6 +83,16 @@ namespace _3Bimestre.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BtnBusca_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("BtnBusca_BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Júpiter {
             get {
                 object obj = ResourceManager.GetObject("Júpiter", resourceCulture);
