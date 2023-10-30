@@ -249,6 +249,7 @@
             this.DtgAdotante.Name = "DtgAdotante";
             this.DtgAdotante.Size = new System.Drawing.Size(759, 145);
             this.DtgAdotante.TabIndex = 41;
+            this.DtgAdotante.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgAdotante_RowHeaderMouseClick);
             // 
             // LblTelefone
             // 

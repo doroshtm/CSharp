@@ -15,8 +15,7 @@ namespace _3Bimestre.ONG_Animal
         public dynamic ConectarComDB()
         {
             return new NpgsqlConnection(
-                connectionString: "Server=localhost;" + "Port=5432;" +
-                "User ID=postgres;" + "Password=postgres;" + "Database=projeto_2b;" + "Pooling=true;");
+                connectionString: "Server = localhost; Port = 5432; User ID = postgres; Password = postgres; Database = projeto_2b; Pooling = true");
         }
         public bool nenhumCampoVazio(params dynamic[] campos)
         {
@@ -31,11 +30,11 @@ namespace _3Bimestre.ONG_Animal
         {
             campo.Font = new Font(campo.Font, FontStyle.Bold);
         }
-        public void ExecutarComandoDB(string query, dynamic conexao, dynamic datagrid)
+        public void fillDataGrid(string query, dynamic conexao, dynamic datagrid)
         {
             try
             {
-
+                this.conexao.Open();
                 using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
                 {
                     using (DataTable dt = new DataTable())
@@ -44,12 +43,28 @@ namespace _3Bimestre.ONG_Animal
                         datagrid.DataSource = dt;
                     }
                 }
+                this.conexao.Close();
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+        }
+
+        private void executarComandoDB(string query, dynamic conexao)
+        {
+            try
+            {
+                this.conexao.Open();
+                conexao.Query(sql: query);
+                this.conexao.Close();
 
             }
             catch (NpgsqlException ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
+
         }
     }
 }
