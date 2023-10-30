@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAnimal));
             this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
-            this.BtnNovaAdocao = new System.Windows.Forms.Button();
+            this.BtnNovo = new System.Windows.Forms.Button();
             this.LblVacinacao = new System.Windows.Forms.Label();
             this.LblStatusAnimal = new System.Windows.Forms.Label();
             this.LblNomeAnimal = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.TxtBusca = new System.Windows.Forms.TextBox();
             this.DtgAnimal = new System.Windows.Forms.DataGridView();
             this.StripRodape = new System.Windows.Forms.StatusStrip();
+            this.tslAnimal = new System.Windows.Forms.ToolStripStatusLabel();
             this.LblDispo = new System.Windows.Forms.Label();
             this.TxtDisponivel = new System.Windows.Forms.TextBox();
             this.LblGenero = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.DtpDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.LblDataNascimento = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAnimal)).BeginInit();
+            this.StripRodape.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnCancelar
@@ -66,16 +67,16 @@
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Visible = false;
             // 
-            // BtnDelete
+            // BtnExcluir
             // 
-            this.BtnDelete.BackColor = System.Drawing.Color.Red;
-            this.BtnDelete.Location = new System.Drawing.Point(224, 127);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(84, 24);
-            this.BtnDelete.TabIndex = 33;
-            this.BtnDelete.Text = "Excluir";
-            this.BtnDelete.UseVisualStyleBackColor = false;
-            this.BtnDelete.Visible = false;
+            this.BtnExcluir.BackColor = System.Drawing.Color.Red;
+            this.BtnExcluir.Location = new System.Drawing.Point(224, 127);
+            this.BtnExcluir.Name = "BtnExcluir";
+            this.BtnExcluir.Size = new System.Drawing.Size(84, 24);
+            this.BtnExcluir.TabIndex = 33;
+            this.BtnExcluir.Text = "Excluir";
+            this.BtnExcluir.UseVisualStyleBackColor = false;
+            this.BtnExcluir.Visible = false;
             // 
             // BtnEditar
             // 
@@ -88,15 +89,15 @@
             this.BtnEditar.UseVisualStyleBackColor = false;
             this.BtnEditar.Visible = false;
             // 
-            // BtnNovaAdocao
+            // BtnNovo
             // 
-            this.BtnNovaAdocao.BackColor = System.Drawing.Color.Lime;
-            this.BtnNovaAdocao.Location = new System.Drawing.Point(12, 127);
-            this.BtnNovaAdocao.Name = "BtnNovaAdocao";
-            this.BtnNovaAdocao.Size = new System.Drawing.Size(84, 24);
-            this.BtnNovaAdocao.TabIndex = 31;
-            this.BtnNovaAdocao.Text = "Nova adoção";
-            this.BtnNovaAdocao.UseVisualStyleBackColor = false;
+            this.BtnNovo.BackColor = System.Drawing.Color.Lime;
+            this.BtnNovo.Location = new System.Drawing.Point(12, 127);
+            this.BtnNovo.Name = "BtnNovo";
+            this.BtnNovo.Size = new System.Drawing.Size(84, 24);
+            this.BtnNovo.TabIndex = 31;
+            this.BtnNovo.Text = "Novo animal";
+            this.BtnNovo.UseVisualStyleBackColor = false;
             // 
             // LblVacinacao
             // 
@@ -106,7 +107,6 @@
             this.LblVacinacao.Size = new System.Drawing.Size(61, 13);
             this.LblVacinacao.TabIndex = 30;
             this.LblVacinacao.Text = "Vacinação:";
-            this.LblVacinacao.Click += new System.EventHandler(this.LblVacinacao_Click);
             // 
             // LblStatusAnimal
             // 
@@ -116,7 +116,6 @@
             this.LblStatusAnimal.Size = new System.Drawing.Size(100, 13);
             this.LblStatusAnimal.TabIndex = 29;
             this.LblStatusAnimal.Text = "Situação da animal:";
-            this.LblStatusAnimal.Click += new System.EventHandler(this.LblStatusAnimal_Click);
             // 
             // LblNomeAnimal
             // 
@@ -142,7 +141,6 @@
             this.TxtVacinacao.Name = "TxtVacinacao";
             this.TxtVacinacao.Size = new System.Drawing.Size(143, 20);
             this.TxtVacinacao.TabIndex = 26;
-            this.TxtVacinacao.TextChanged += new System.EventHandler(this.TxtVacinacao_TextChanged);
             // 
             // TxtSituacao
             // 
@@ -150,7 +148,6 @@
             this.TxtSituacao.Name = "TxtSituacao";
             this.TxtSituacao.Size = new System.Drawing.Size(105, 20);
             this.TxtSituacao.TabIndex = 25;
-            this.TxtSituacao.TextChanged += new System.EventHandler(this.TxtSituacao_TextChanged);
             // 
             // TxtAnimalTipo
             // 
@@ -201,11 +198,20 @@
             // 
             // StripRodape
             // 
+            this.StripRodape.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslAnimal});
             this.StripRodape.Location = new System.Drawing.Point(0, 428);
             this.StripRodape.Name = "StripRodape";
             this.StripRodape.Size = new System.Drawing.Size(800, 22);
             this.StripRodape.TabIndex = 18;
             this.StripRodape.Text = "statusStrip1";
+            // 
+            // tslAnimal
+            // 
+            this.tslAnimal.Name = "tslAnimal";
+            this.tslAnimal.Size = new System.Drawing.Size(118, 17);
+            this.tslAnimal.Text = "toolStripStatusLabel1";
+            this.tslAnimal.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // LblDispo
             // 
@@ -215,7 +221,6 @@
             this.LblDispo.Size = new System.Drawing.Size(122, 13);
             this.LblDispo.TabIndex = 36;
             this.LblDispo.Text = "Disponivel para adoção:";
-            this.LblDispo.Click += new System.EventHandler(this.LblDispo_Click);
             // 
             // TxtDisponivel
             // 
@@ -223,7 +228,6 @@
             this.TxtDisponivel.Name = "TxtDisponivel";
             this.TxtDisponivel.Size = new System.Drawing.Size(174, 20);
             this.TxtDisponivel.TabIndex = 35;
-            this.TxtDisponivel.TextChanged += new System.EventHandler(this.TxtDisponivel_TextChanged);
             // 
             // LblGenero
             // 
@@ -257,7 +261,7 @@
             this.LblDataNascimento.TabIndex = 40;
             this.LblDataNascimento.Text = "Data de Nascimento:";
             // 
-            // FrmAnimal
+            // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -269,9 +273,9 @@
             this.Controls.Add(this.LblDispo);
             this.Controls.Add(this.TxtDisponivel);
             this.Controls.Add(this.BtnCancelar);
-            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnEditar);
-            this.Controls.Add(this.BtnNovaAdocao);
+            this.Controls.Add(this.BtnNovo);
             this.Controls.Add(this.LblVacinacao);
             this.Controls.Add(this.LblStatusAnimal);
             this.Controls.Add(this.LblNomeAnimal);
@@ -285,10 +289,12 @@
             this.Controls.Add(this.TxtBusca);
             this.Controls.Add(this.DtgAnimal);
             this.Controls.Add(this.StripRodape);
-            this.Name = "FrmAnimal";
+            this.Name = "FrmPrincipal";
             this.Text = "  ";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FrmAnimal_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAnimal)).EndInit();
+            this.StripRodape.ResumeLayout(false);
+            this.StripRodape.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,9 +303,9 @@
         #endregion
 
         private System.Windows.Forms.Button BtnCancelar;
-        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button BtnEditar;
-        private System.Windows.Forms.Button BtnNovaAdocao;
+        private System.Windows.Forms.Button BtnNovo;
         private System.Windows.Forms.Label LblVacinacao;
         private System.Windows.Forms.Label LblStatusAnimal;
         private System.Windows.Forms.Label LblNomeAnimal;
@@ -319,5 +325,6 @@
         private System.Windows.Forms.TextBox TxtGenero;
         private System.Windows.Forms.DateTimePicker DtpDataNascimento;
         private System.Windows.Forms.Label LblDataNascimento;
+        private System.Windows.Forms.ToolStripStatusLabel tslAnimal;
     }
 }
