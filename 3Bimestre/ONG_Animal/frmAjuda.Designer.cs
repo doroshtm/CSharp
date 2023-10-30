@@ -1,4 +1,4 @@
-﻿namespace Ongdenanimais
+﻿namespace ONG_Animal
 {
     partial class FrmAjuda
     {

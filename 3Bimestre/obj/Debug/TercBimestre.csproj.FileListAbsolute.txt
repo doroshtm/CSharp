@@ -27,7 +27,6 @@ C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\3Bimestre.ex
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\3Bimestre.pdb
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\TercBimestre.csproj.AssemblyReference.cache
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\TercBimestre.csproj.SuggestedBindingRedirects.cache
-C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.ONG_Animal.frmAjuda.resources
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.FrmPlanetas.resources
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.Planeta.resources
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.Properties.Resources.resources
@@ -68,4 +67,5 @@ C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\System.Threa
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\System.ValueTuple.xml
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\TercBimestre.csproj.CopyComplete
-C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\ONG_Pet_2a.FrmPrincipal.resources
+C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.ONG_Animal.FrmPrincipal.resources
+C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\ONG_Animal.FrmAjuda.resources

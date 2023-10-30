@@ -26,7 +26,7 @@ namespace _3Bimestre.ONG_Animal
             InitializeComponent();
             conexao = new NpgsqlConnection(
                 connectionString: "Server=localhost;" + "Port=5432;" +
-                "User ID=postgres;" + "Password=postgres;" + "Database=martinsbase;" + "Pooling=true;");
+                "User ID=postgres;" + "Password=postgres;" + "Database=projeto_2b;" + "Pooling=true;");
 
             ExecutarComandoDB("SELECT * FROM adocao;");
 

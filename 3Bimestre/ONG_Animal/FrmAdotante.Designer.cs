@@ -227,7 +227,6 @@
             // 
             // BtnBusca
             // 
-            this.BtnBusca.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBusca.BackgroundImage")));
             this.BtnBusca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBusca.Location = new System.Drawing.Point(352, 216);
             this.BtnBusca.Name = "BtnBusca";

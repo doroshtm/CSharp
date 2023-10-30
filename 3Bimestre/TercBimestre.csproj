@@ -123,7 +123,6 @@
     <Compile Include="ONG_Animal\FrmAnimal.Designer.cs">
       <DependentUpon>FrmAnimal.cs</DependentUpon>
     </Compile>
-    <Compile Include="ONG_Animal\Program.cs" />
     <Compile Include="Planetas\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -259,7 +259,7 @@
             this.CblInformaçoes.Size = new System.Drawing.Size(100, 21);
             this.CblInformaçoes.TabIndex = 21;
             // 
-            // Formprincipal
+            // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -284,8 +284,8 @@
             this.Controls.Add(this.StripRodape);
             this.Controls.Add(this.MenuPrincipal);
             this.MainMenuStrip = this.MenuPrincipal;
-            this.Name = "Formprincipal";
-            this.Text = "  ";
+            this.Name = "FrmPrincipal";
+            this.Text = " ";
             this.MenuPrincipal.ResumeLayout(false);
             this.MenuPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAdocao)).EndInit();
