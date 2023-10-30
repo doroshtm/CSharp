@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ONG_Animal
+namespace _3Bimestre.ONG_Animal
 {
     public partial class FrmAdotante : Form
     {
@@ -39,7 +39,7 @@ namespace ONG_Animal
 
         private void BtnNovoAdotante_Click(object sender, EventArgs e)
         {
-                           
+
         }
 
         private void FrmAdotante_Load(object sender, EventArgs e)

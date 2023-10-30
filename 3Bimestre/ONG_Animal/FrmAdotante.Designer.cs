@@ -1,4 +1,4 @@
-﻿namespace ONG_Animal
+﻿namespace _3Bimestre.ONG_Animal
 {
     partial class FrmAdotante
     {

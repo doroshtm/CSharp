@@ -11,9 +11,10 @@ using System.Web;
 using System.Windows.Forms;
 using Dapper;
 using Npgsql;
+using ONG_Animal;
 
-namespace ONG_Animal
-{      
+namespace _3Bimestre.ONG_Animal
+{
     public partial class FrmPrincipal : Form
     {
         NpgsqlConnection conexao;
@@ -23,8 +24,8 @@ namespace ONG_Animal
         public FrmPrincipal()
         {
             InitializeComponent();
-            conexao= new NpgsqlConnection(
-                connectionString: "Server=localhost;" + "Port=5432;" + 
+            conexao = new NpgsqlConnection(
+                connectionString: "Server=localhost;" + "Port=5432;" +
                 "User ID=postgres;" + "Password=postgres;" + "Database=martinsbase;" + "Pooling=true;");
 
             ExecutarComandoDB("SELECT * FROM adocao;");
@@ -32,7 +33,7 @@ namespace ONG_Animal
             Listas();
         }
 
-      
+
 
         private void TsmiAnimal_Click(object sender, EventArgs e)
         {
@@ -44,19 +45,19 @@ namespace ONG_Animal
         {
             FrmAdotante frmAdotante = new FrmAdotante();
             frmAdotante.ShowDialog();
-        }                                                                           
-                                   
+        }
+
         private void TsmiAjuda_Click(object sender, EventArgs e)
         {
-            FrmAjuda frmaAjuda= new FrmAjuda();
+            FrmAjuda frmaAjuda = new FrmAjuda();
             frmaAjuda.ShowDialog();
         }
 
-        
+
         private void ExecutarComandoDB(string query)
         {
             try
-            { 
+            {
 
                 using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
                 {
@@ -68,18 +69,18 @@ namespace ONG_Animal
                 }
 
             }
-            catch(NpgsqlException ex)
+            catch (NpgsqlException ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
         }
 
-     
-    
-       private void Listas()
+
+
+        private void Listas()
         {
-            
-                try
+
+            try
             {
                 var queryAdotante = "SELECT nome FROM adotante;";
                 var queryAnimal = "SELECT nome FROM animal";
@@ -90,66 +91,66 @@ namespace ONG_Animal
                     animais = conexao.Query<Animal>(sql: queryAnimal);
                 }
                 foreach (dynamic p in pessoas) CblAdotante.Items.Add(p.Nome);
-                foreach(dynamic a in animais)CblAnimal.Items.Add(a.Nome);
+                foreach (dynamic a in animais) CblAnimal.Items.Add(a.Nome);
             }
             catch (NpgsqlException ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
-                
+
 
             }
-        
-    }
-      //  private IEnumerable<Adotante> ListaAdotante()
-    //    {
-     //       try
+
+        }
+        //  private IEnumerable<Adotante> ListaAdotante()
+        //    {
+        //       try
         //    {
 
-     //           var query = "SELECT nome FROM  adotante;";
+        //           var query = "SELECT nome FROM  adotante;";
 
-         ///       using (conexao)
-           //     {
-           //         return conexao.Query<Adotante>(sql: query);
+        ///       using (conexao)
+        //     {
+        //         return conexao.Query<Adotante>(sql: query);
 
-              //  }
-         ///   }
-         //   catch (NpgsqlException ex)
-          //  {
-             //   MessageBox.Show("Erro: " + ex.Message);
-            //    return Enumerable.Empty<Adotante>();
+        //  }
+        ///   }
+        //   catch (NpgsqlException ex)
+        //  {
+        //   MessageBox.Show("Erro: " + ex.Message);
+        //    return Enumerable.Empty<Adotante>();
 
-           // }
-       // }
+        // }
+        // }
 
-       
-        
+
+
         private void BtnNovaAdocao_Click(object sender, EventArgs e)
-                {
-                       if(!string.IsNullOrEmpty(CblAnimal.Text)&&
-                          !string.IsNullOrEmpty(CblAdotante.Text)&&
-                          !string.IsNullOrEmpty(CblStatus.Text)&&
-                          !string.IsNullOrEmpty(CblInformaçoes.Text))
-                    {
-                        NovoAdocao();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Campos obrigatorios não preenhidos!!");
+        {
+            if (!string.IsNullOrEmpty(CblAnimal.Text) &&
+               !string.IsNullOrEmpty(CblAdotante.Text) &&
+               !string.IsNullOrEmpty(CblStatus.Text) &&
+               !string.IsNullOrEmpty(CblInformaçoes.Text))
+            {
+                NovoAdocao();
+            }
+            else
+            {
+                MessageBox.Show("Campos obrigatorios não preenhidos!!");
 
-                        if(string.IsNullOrEmpty(CblAnimal.Text))
-                            LblAnimal.Font = new Font(this.Font, FontStyle.Bold);
-                        if (string.IsNullOrEmpty(CblAdotante.Text))
-                            LblAdotante.Font = new Font(this.Font, FontStyle.Bold);
-                        if (string.IsNullOrEmpty(CblStatus.Text))
-                            LblStatus.Font = new Font(this.Font, FontStyle.Bold);
-                        if (string.IsNullOrEmpty(CblInformaçoes.Text))
-                            LblInformacoes.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(CblAnimal.Text))
+                    LblAnimal.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(CblAdotante.Text))
+                    LblAdotante.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(CblStatus.Text))
+                    LblStatus.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(CblInformaçoes.Text))
+                    LblInformacoes.Font = new Font(this.Font, FontStyle.Bold);
 
-                    }
-                 
-            
+            }
+
+
         }
-        
+
 
         private void BtnBusca_Click(object sender, EventArgs e)
         {
@@ -163,9 +164,9 @@ namespace ONG_Animal
         }
 
         private void NovoAdocao()
-        {   
-    
-            string animal =this.CblAnimal.Text;
+        {
+
+            string animal = this.CblAnimal.Text;
             string adotante = this.CblAdotante.Text;
             string Status = this.CblStatus.Text;
             string informacoes = this.CblInformaçoes.Text;
@@ -180,11 +181,11 @@ namespace ONG_Animal
             {
                 string query = $"SELECT id FROM animal" +
                     $"WHERE nome= '{CblAnimal.Text}';";
-                dynamic animal = conexao.Query<Animal>(sql:query) ;
+                dynamic animal = conexao.Query<Animal>(sql: query);
                 this.IdAnimal = animal[0].Id;
             }
             catch (NpgsqlException ex)
-            { 
+            {
                 MessageBox.Show(ex.Message);
             }
         }
