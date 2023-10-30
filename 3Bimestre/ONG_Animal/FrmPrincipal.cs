@@ -26,13 +26,34 @@ namespace _3Bimestre.ONG_Animal
             InitializeComponent();
             conexao = new NpgsqlConnection(
                 connectionString: "Server=localhost;" + "Port=5432;" +
-                "User ID=postgres;" + "Password=postgres;" + "Database=projeto_2b;" + "Pooling=true;");
+                "User ID=postgres;" + "Password=postgres;" + "Database=Windows Forms;" + "Pooling=true;");
 
-            ExecutarComandoDB("SELECT * FROM adocao;");
+            fillDataGrid();
 
             Listas();
         }
+        private void fillDataGrid()
+        {
+            try
+            {
+                string query = "SELECT * FROM adoption;";
+                this.conexao.Open();
+                using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        da.Fill(dt);
+                        DtgAdocao.DataSource = dt;
+                    }
+                }
+                this.conexao.Close();
 
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+        }
 
 
         private void TsmiAnimal_Click(object sender, EventArgs e)
@@ -54,11 +75,11 @@ namespace _3Bimestre.ONG_Animal
         }
 
 
-        private void ExecutarComandoDB(string query)
+        private void executarComandoDB(string query)
         {
             try
             {
-
+                this.conexao.Open();
                 using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
                 {
                     using (DataTable dt = new DataTable())
@@ -67,6 +88,7 @@ namespace _3Bimestre.ONG_Animal
                         DtgAdocao.DataSource = dt;
                     }
                 }
+                this.conexao.Close();
 
             }
             catch (NpgsqlException ex)
@@ -160,7 +182,7 @@ namespace _3Bimestre.ONG_Animal
                 "FROM adocao AS ac ,INNER JOIN animal AS an ON ac.animal = an.id ,INNER JOIN adotante AS ad ON ac.adotante = ad.id," +
                 $"WHERE ad.nome LIKE '%{busca}%' or an.nome LIKE '%{busca}%';";
 
-            ExecutarComandoDB(query);
+            executarComandoDB(query);
         }
 
         private void NovoAdocao()
@@ -172,7 +194,7 @@ namespace _3Bimestre.ONG_Animal
             string informacoes = this.CblInformaçoes.Text;
             string query = "INSERT INTO adotante(animal, adotante, status, informacoes)" +
                               $"VALUES('{animal}','{adotante}','{Status}','{informacoes}';";
-            ExecutarComandoDB(query);
+            executarComandoDB(query);
         }
 
         private void CblAnimal_SelectedIndexChanged(object sender, EventArgs e)

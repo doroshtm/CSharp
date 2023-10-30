@@ -69,3 +69,4 @@ C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\bin\Debug\System.Value
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\TercBimestre.csproj.CopyComplete
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.ONG_Animal.FrmPrincipal.resources
 C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\ONG_Animal.FrmAjuda.resources
+C:\Users\ra2257006\source\repos\doroshtm\CSharp\3Bimestre\obj\Debug\_3Bimestre.ONG_Animal.FrmAdotante.resources
