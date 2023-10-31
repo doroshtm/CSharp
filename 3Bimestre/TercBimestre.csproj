@@ -100,15 +100,14 @@
     <Compile Include="ONG_Animal\Adotante.cs" />
     <Compile Include="ONG_Animal\Animal.cs" />
     <Compile Include="ONG_Animal\Interface1.cs" />
+    <Compile Include="ONG_Animal\SerVivo.cs" />
+    <Compile Include="ONG_Animal\InterfaceMenu.cs" />
     <Compile Include="ONG_Animal\Util.cs" />
     <Compile Include="ONG_Animal\FrmAdotante.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ONG_Animal\FrmAdotante.Designer.cs">
       <DependentUpon>FrmAdotante.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ONG_Animal\FrmAnimal1.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="ONG_Animal\FrmPrincipal.cs">
       <SubType>Form</SubType>
