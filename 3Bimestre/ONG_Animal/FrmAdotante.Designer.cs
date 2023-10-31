@@ -35,7 +35,7 @@
             this.LblEndereco = new System.Windows.Forms.Label();
             this.TxtEndereco = new System.Windows.Forms.TextBox();
             this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnNovoAdotante = new System.Windows.Forms.Button();
             this.LblCpf = new System.Windows.Forms.Label();
@@ -70,7 +70,6 @@
             this.DtpDataNascimento.Name = "DtpDataNascimento";
             this.DtpDataNascimento.Size = new System.Drawing.Size(200, 20);
             this.DtpDataNascimento.TabIndex = 61;
-            this.DtpDataNascimento.ValueChanged += new System.EventHandler(this.DtpDataNascimento_ValueChanged);
             // 
             // LblRg
             // 
@@ -80,7 +79,6 @@
             this.LblRg.Size = new System.Drawing.Size(24, 13);
             this.LblRg.TabIndex = 60;
             this.LblRg.Text = "Rg:";
-            this.LblRg.Click += new System.EventHandler(this.LblGenero_Click);
             // 
             // TxtRg
             // 
@@ -88,7 +86,6 @@
             this.TxtRg.Name = "TxtRg";
             this.TxtRg.Size = new System.Drawing.Size(174, 20);
             this.TxtRg.TabIndex = 59;
-            this.TxtRg.TextChanged += new System.EventHandler(this.TxtGenero_TextChanged);
             // 
             // LblEndereco
             // 
@@ -116,17 +113,19 @@
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Visible = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // BtnDelete
+            // BtnExcluir
             // 
-            this.BtnDelete.BackColor = System.Drawing.Color.Red;
-            this.BtnDelete.Location = new System.Drawing.Point(226, 171);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(84, 24);
-            this.BtnDelete.TabIndex = 55;
-            this.BtnDelete.Text = "Excluir";
-            this.BtnDelete.UseVisualStyleBackColor = false;
-            this.BtnDelete.Visible = false;
+            this.BtnExcluir.BackColor = System.Drawing.Color.Red;
+            this.BtnExcluir.Location = new System.Drawing.Point(226, 171);
+            this.BtnExcluir.Name = "BtnExcluir";
+            this.BtnExcluir.Size = new System.Drawing.Size(84, 24);
+            this.BtnExcluir.TabIndex = 55;
+            this.BtnExcluir.Text = "Excluir";
+            this.BtnExcluir.UseVisualStyleBackColor = false;
+            this.BtnExcluir.Visible = false;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // BtnEditar
             // 
@@ -138,6 +137,7 @@
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
             this.BtnEditar.Visible = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnNovoAdotante
             // 
@@ -249,6 +249,7 @@
             this.DtgAdotante.Name = "DtgAdotante";
             this.DtgAdotante.Size = new System.Drawing.Size(759, 145);
             this.DtgAdotante.TabIndex = 41;
+            this.DtgAdotante.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgAdotante_RowHeaderMouseClick);
             // 
             // LblTelefone
             // 
@@ -258,7 +259,6 @@
             this.LblTelefone.Size = new System.Drawing.Size(52, 13);
             this.LblTelefone.TabIndex = 64;
             this.LblTelefone.Text = "Telefone:";
-            this.LblTelefone.Click += new System.EventHandler(this.label1_Click);
             // 
             // TxtTelefone
             // 
@@ -266,7 +266,6 @@
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.Size = new System.Drawing.Size(105, 20);
             this.TxtTelefone.TabIndex = 63;
-            this.TxtTelefone.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FrmAdotante
             // 
@@ -282,7 +281,7 @@
             this.Controls.Add(this.LblEndereco);
             this.Controls.Add(this.TxtEndereco);
             this.Controls.Add(this.BtnCancelar);
-            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.BtnNovoAdotante);
             this.Controls.Add(this.LblCpf);
@@ -299,7 +298,6 @@
             this.Controls.Add(this.DtgAdotante);
             this.Name = "FrmAdotante";
             this.Text = "Pessoas que ja doaram";
-            this.Load += new System.EventHandler(this.FrmAdotante_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAdotante)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -315,7 +313,7 @@
         private System.Windows.Forms.Label LblEndereco;
         private System.Windows.Forms.TextBox TxtEndereco;
         private System.Windows.Forms.Button BtnCancelar;
-        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnNovoAdotante;
         private System.Windows.Forms.Label LblCpf;

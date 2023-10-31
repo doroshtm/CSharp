@@ -107,9 +107,6 @@
     <Compile Include="ONG_Animal\FrmAdotante.Designer.cs">
       <DependentUpon>FrmAdotante.cs</DependentUpon>
     </Compile>
-    <Compile Include="ONG_Animal\FrmAnimal1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ONG_Animal\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -81,8 +81,7 @@ namespace _3Bimestre.ONG_Animal
 
         private void BtnBusca_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM aimal" +
-                $"WHERE ad.nome LIKE '%{TxtBusca.Text}%' or an.nome LIKE '%{TxtBusca.Text}%';";
+            string query = $"SELECT * FROM animal WHERE nome LIKE '%{TxtBusca.Text}%'";
             CarregarDados(query);
         }
 
@@ -90,11 +89,11 @@ namespace _3Bimestre.ONG_Animal
         {
             if (Utilidade.nenhumCampoVazio(TxtAnimalNome.Text,
                 TxtGenero.Text, TxtAnimalTipo.Text, TxtSituacao.Text,
-                TxtVacinacao.Text, TxtDisponivel.Text))
+                TxtVacinacao.Text))
             {
                 try
                 {
-                    
+                    Adicionar();
                 }
                 catch (NpgsqlException ex)
                 {
@@ -106,7 +105,7 @@ namespace _3Bimestre.ONG_Animal
             {
                 List<dynamic> campos = new List<dynamic>() { TxtAnimalNome.Text,
                 TxtGenero.Text, TxtAnimalTipo.Text, TxtSituacao.Text,
-                TxtVacinacao.Text, TxtDisponivel.Text };
+                TxtVacinacao.Text, chDisponivelAdocao.Checked };
                 MessageBox.Show("Campos obrigatórios não preenchidos!");
                 foreach(dynamic campo in campos)
                 {
@@ -118,34 +117,22 @@ namespace _3Bimestre.ONG_Animal
         public void Adicionar()
         {
             //Tratamento da data de adoção
-            var day = DtpDataNascimento.Value.Day;
-            var month = DtpDataNascimento.Value.Month;
-            var year = DtpDataNascimento.Value.Year;
-            string dataAnimal = year + "/" + month + "/" + day;
+            var data = DtpDataNascimento.Value;
             string tipo = TxtAnimalTipo.Text;
-            string animal = TxtAnimalNome.Text;
+            string nome = TxtAnimalNome.Text;
             string genero = TxtGenero.Text;
             string status = TxtSituacao.Text;
             string vacinacao = TxtVacinacao.Text;
-            string disponivel = TxtDisponivel.Text;
+            bool disponivel = chDisponivelAdocao.Checked;
 
-            if (this.IdAnimal != 0)
-            {
-                var query = "INSERT INTO animal (id,nome,tipo,genero,data_nascimento,vacinacao,disponibilidade_adocao,status)" +
-                    " VALUES " +
-                    $"({this.IdAnimal},'{animal}','{tipo}','{genero}','{dataAnimal}','{vacinacao}','{disponivel}'" +
-                    $"'{status}')";
+            var query = "INSERT INTO animal (nome,tipo,genero,data_nascimento,vacinacao,disponibilidade_adocao,status)" +
+                " VALUES " +
+                $"('{nome}','{tipo}','{genero}','{data}','{vacinacao}','{disponivel}','{status}');";
 
-                conexao.Query(sql: query); //Executa a inserção de dados
-                MessageBox.Show("Novao animal adicionado com sucesso!");
-                LimpaCampos();
-                CarregarDados(null); //Carrega lista atualizada com o novo registro
-            }
-            else
-            {
-                MessageBox.Show("Animal não encontrado!");
-                tslAnimal.Text = "Animal não encontrado!";
-            }
+            conexao.Query(sql: query);
+            MessageBox.Show("Animal inserido com sucesso!");
+            LimpaCampos();
+            CarregarDados(null); //Carrega lista atualizada com o novo registro
         }
         private void LimpaCampos()
         {
@@ -154,23 +141,24 @@ namespace _3Bimestre.ONG_Animal
             TxtGenero.Clear();
             TxtSituacao.ResetText();
             TxtVacinacao.Clear();
-            TxtDisponivel.Clear();
+            chDisponivelAdocao.Checked = false;
         }
 
         private void DtgAnimal_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
-                this.IdAnimal = (int)DtgAnimal.SelectedRows[0].Cells[1].Value;
+                this.IdAnimal = (int)DtgAnimal.SelectedRows[0].Cells[0].Value;
 
-                var nomeAnimal = DtgAnimal.SelectedRows[0].Cells[2].Value;
-                var tipoAnimal = DtgAnimal.SelectedRows[0].Cells[5].Value;
-                var generoAnimal = DtgAnimal.SelectedRows[0].Cells[6].Value;
-                var disponivelAnimal = DtgAnimal.SelectedRows[0].Cells[7].Value;
-                var vacinaAnimal = DtgAnimal.SelectedRows[0].Cells[8].Value;
-                var situacaoAnimal = DtgAnimal.SelectedRows[0].Cells[9].Value;
+                var nomeAnimal = DtgAnimal.SelectedRows[0].Cells[1].Value;
+                var tipoAnimal = DtgAnimal.SelectedRows[0].Cells[2].Value;
+                var generoAnimal = DtgAnimal.SelectedRows[0].Cells[3].Value;
+                var data_nascimento = DtgAnimal.SelectedRows[0].Cells[4].Value;
+                var vacinaAnimal = DtgAnimal.SelectedRows[0].Cells[5].Value;
+                var disponivelAnimal = DtgAnimal.SelectedRows[0].Cells[6].Value;
+                var situacaoAnimal = DtgAnimal.SelectedRows[0].Cells[7].Value;
 
-                var newDate = ToString().Split('/');
+                var newDate = data_nascimento.ToString().Split('/');
                 int d = int.Parse(newDate[0]);
                 int m = int.Parse(newDate[1]);
                 int y = int.Parse(newDate[2].Split(' ')[0]);
@@ -182,7 +170,7 @@ namespace _3Bimestre.ONG_Animal
 
                 TxtSituacao.Text = situacaoAnimal.ToString();
                 TxtGenero.Text = generoAnimal.ToString();
-                TxtDisponivel.Text = disponivelAnimal.ToString();
+                chDisponivelAdocao.Checked = (bool)disponivelAnimal;
                 TxtVacinacao.Text = vacinaAnimal.ToString();
                 TxtGenero.Text = generoAnimal.ToString();
 
@@ -199,6 +187,7 @@ namespace _3Bimestre.ONG_Animal
         }
         public void Cancelar()
         {
+            BtnNovo.Visible = true;
             BtnEditar.Visible = false;
             BtnExcluir.Visible = false;
             BtnCancelar.Visible = false;
@@ -212,10 +201,17 @@ namespace _3Bimestre.ONG_Animal
         }
         public void Editar()
         {
-            var update = $"UPDATE animal SET nome='{TxtAnimalNome.Text}',tipo='{TxtAnimalTipo.Text}', " +
-             $"genero='{TxtGenero.Text}',data_nascimento={DtpDataNascimento}" +
-             $"vacinacao = '{TxtVacinacao.Text}',disponibilidade_adocao='{TxtDisponivel.Text}'," +
-             $"status='{TxtSituacao.Text}' WHERE id = {this.IdAnimal}";
+            string nome = TxtAnimalNome.Text;
+            string tipo = TxtAnimalTipo.Text;
+            string genero = TxtGenero.Text;
+            string vacinacao = TxtVacinacao.Text;
+            string status = TxtSituacao.Text;
+            bool disponibilidade = chDisponivelAdocao.Checked;
+            var data = DtpDataNascimento.Value.Date;
+
+            var update = $"UPDATE animal SET nome = '{nome}', tipo = '{tipo}', genero = '{genero}'," +
+                $"data_nascimento = '{data}', vacinacao = '{vacinacao}', disponibilidade_adocao = '{disponibilidade}'," +
+                $"status = '{status}' WHERE id = {this.IdAnimal};"; 
             conexao.Query(sql: update);
             MessageBox.Show("Dados atualizados com sucesso!!!");
             LimpaCampos();
@@ -267,21 +263,6 @@ namespace _3Bimestre.ONG_Animal
                     tslAnimal.Text = ex.Message;
                 }
             }
-        }
-
-        private void FrmAnimal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Frm_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

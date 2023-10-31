@@ -16,7 +16,7 @@ namespace _3Bimestre.ONG_Animal
         {
             return new NpgsqlConnection(
                 connectionString: "Server=localhost;" + "Port=5432;" +
-                "User ID=postgres;" + "Password=postgres;" + "Database=projeto_2b;" + "Pooling=true;");
+                "User ID=postgres;" + "Password=123;" + "Database=projeto_2b;" + "Pooling=true;");
         }
         public bool nenhumCampoVazio(params dynamic[] campos)
         {

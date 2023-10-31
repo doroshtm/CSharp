@@ -15,7 +15,7 @@ using ONG_Animal;
 
 namespace _3Bimestre.ONG_Animal
 {
-    public abstract partial class FrmPrincipal : Form, Menu
+    public partial class FrmPrincipal : Form
     {
         Util Utilidade= new Util();
         NpgsqlConnection conexao;
@@ -25,7 +25,7 @@ namespace _3Bimestre.ONG_Animal
         public FrmPrincipal()
         {
             InitializeComponent();
-            conexao = Utilidade.ConectarComDB();
+            conexao = conexao = Utilidade.ConectarComDB();
 
             Utilidade.ExecutarComandoDB("SELECT * FROM adocao;",conexao,DtgAdocao);
             fillDataGrid();
@@ -36,7 +36,7 @@ namespace _3Bimestre.ONG_Animal
         {
             try
             {
-                string query = "SELECT * FROM adoption;";
+                string query = "SELECT * FROM adocao;";
                 this.conexao.Open();
                 using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
                 {
@@ -83,16 +83,16 @@ namespace _3Bimestre.ONG_Animal
 
             try
             {
-                var queryAdotante = "SELECT name FROM adopter;";
-                var queryAnimal = "SELECT name FROM animal";
+                var queryAdotante = "SELECT nome FROM adotante;";
+                var queryAnimal = "SELECT nome FROM animal";
                 dynamic pessoas, animais;
                 using (conexao)
                 {
                     pessoas = conexao.Query<Adotante>(sql: queryAdotante);
                     animais = conexao.Query<Animal>(sql: queryAnimal);
                 }
-                foreach (dynamic p in pessoas) CblAdotante.Items.Add(p.name);
-                foreach (dynamic a in animais) CblAnimal.Items.Add(a.name);
+                foreach (dynamic p in pessoas) CblAdotante.Items.Add(p.Nome);
+                foreach (dynamic a in animais) CblAnimal.Items.Add(a.Nome);
             }
             catch (NpgsqlException ex)
             {
@@ -181,9 +181,6 @@ namespace _3Bimestre.ONG_Animal
                               $"VALUES('{animal}','{adotante}','{Status}','{informacoes}';";
             Utilidade.ExecutarComandoDB(query, conexao, DtgAdocao);
         }
-        public abstract void Editar();
-        public abstract void Excluir();
-        public abstract void Cancelar();
         private void CblAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
