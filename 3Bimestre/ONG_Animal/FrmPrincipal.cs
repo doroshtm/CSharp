@@ -36,7 +36,7 @@ namespace _3Bimestre.ONG_Animal
         {
             try
             {
-                string query = "SELECT * FROM adoption;";
+                string query = "SELECT * FROM adocao;";
                 this.conexao.Open();
                 using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conexao))
                 {
@@ -83,16 +83,16 @@ namespace _3Bimestre.ONG_Animal
 
             try
             {
-                var queryAdotante = "SELECT name FROM adopter;";
-                var queryAnimal = "SELECT name FROM animal";
+                var queryAdotante = "SELECT nome FROM adotante;";
+                var queryAnimal = "SELECT nome FROM animal";
                 dynamic pessoas, animais;
                 using (conexao)
                 {
                     pessoas = conexao.Query<Adotante>(sql: queryAdotante);
                     animais = conexao.Query<Animal>(sql: queryAnimal);
                 }
-                foreach (dynamic p in pessoas) CblAdotante.Items.Add(p.name);
-                foreach (dynamic a in animais) CblAnimal.Items.Add(a.name);
+                foreach (dynamic p in pessoas) CblAdotante.Items.Add(p.Nome);
+                foreach (dynamic a in animais) CblAnimal.Items.Add(a.Nome);
             }
             catch (NpgsqlException ex)
             {
@@ -127,7 +127,7 @@ namespace _3Bimestre.ONG_Animal
 
         private void BtnNovaAdocao_Click(object sender, EventArgs e)
         {
-            if (
+        /*    if (
                 Utilidade.nenhumCampoVazio( 
                     CblAnimal.Text,
                     CblAdotante.Text,
@@ -153,7 +153,7 @@ namespace _3Bimestre.ONG_Animal
                     }
                 }
 
-            }
+            }*/
 
 
         }

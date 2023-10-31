@@ -16,36 +16,13 @@ namespace _3Bimestre.ONG_Animal
     {
         /* Manipulação de campos */
 
-        public bool nenhumCampoVazio(params string[] campos)
-        {
-            bool ret = true;
-            foreach (dynamic campo in campos)
-            {
-                ret = ret && !string.IsNullOrEmpty(campo);
-            }
-            return ret;
-        }
-        public bool nenhumCampoVazio(List<dynamic> campos)
-        {
-            bool ret = true;
-            foreach (dynamic campo in campos)
-            {
-                ret = ret && !string.IsNullOrEmpty(campo);
-            }
-            return ret;
-        }
-        public void mudarFonteParaNegrito(dynamic campo)
-        {
-            campo.Font = new Font(campo.Font, FontStyle.Bold);
-        }
-
         /* Banco de Dados */
 
         public void fillDataGrid(string query, dynamic conexao,dynamic Datagrid, string nomeTabela )
         {
             if (string.IsNullOrEmpty(query))
             {
-                query = $"SELECT * FROM {nomeTabela}";
+                query = $"SELECT * FROM {nomeTabela} ORDER BY id";
             }
             try
             {
@@ -64,6 +41,7 @@ namespace _3Bimestre.ONG_Animal
             catch (NpgsqlException ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
+                conexao.Close();
             }
         }
         public void executarComandoDB(string query, dynamic conexao)
@@ -71,13 +49,15 @@ namespace _3Bimestre.ONG_Animal
             try
             {
                 conexao.Open();
-                conexao.Query(sql: query);
+                NpgsqlCommand command = new NpgsqlCommand(query, conexao);
+                command.ExecuteNonQuery();
                 conexao.Close();
 
             }
             catch (NpgsqlException ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
+                conexao.Close();
             }
 
         }
@@ -85,7 +65,7 @@ namespace _3Bimestre.ONG_Animal
         {
             return new NpgsqlConnection(
                 connectionString: "Server=localhost;" + "Port=5432;" +
-                "User ID=postgres;" + "Password=postgres;" + "Database=projeto_2b;" + "Pooling=true;");
+                "User ID=postgres;" + "Password=123;" + "Database=projeto_2b;" + "Pooling=true;");
         }
 
 

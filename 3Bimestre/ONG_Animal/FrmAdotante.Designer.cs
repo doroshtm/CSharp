@@ -35,7 +35,7 @@
             this.LblEndereco = new System.Windows.Forms.Label();
             this.TxtEndereco = new System.Windows.Forms.TextBox();
             this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnNovoAdotante = new System.Windows.Forms.Button();
             this.LblCpf = new System.Windows.Forms.Label();
@@ -113,17 +113,19 @@
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Visible = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // BtnDelete
+            // BtnExcluir
             // 
-            this.BtnDelete.BackColor = System.Drawing.Color.Red;
-            this.BtnDelete.Location = new System.Drawing.Point(226, 171);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(84, 24);
-            this.BtnDelete.TabIndex = 55;
-            this.BtnDelete.Text = "Excluir";
-            this.BtnDelete.UseVisualStyleBackColor = false;
-            this.BtnDelete.Visible = false;
+            this.BtnExcluir.BackColor = System.Drawing.Color.Red;
+            this.BtnExcluir.Location = new System.Drawing.Point(226, 171);
+            this.BtnExcluir.Name = "BtnExcluir";
+            this.BtnExcluir.Size = new System.Drawing.Size(84, 24);
+            this.BtnExcluir.TabIndex = 55;
+            this.BtnExcluir.Text = "Excluir";
+            this.BtnExcluir.UseVisualStyleBackColor = false;
+            this.BtnExcluir.Visible = false;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // BtnEditar
             // 
@@ -135,6 +137,7 @@
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
             this.BtnEditar.Visible = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnNovoAdotante
             // 
@@ -225,9 +228,9 @@
             // 
             this.BtnBusca.BackgroundImage = global::_3Bimestre.Properties.Resources.BtnBusca_BackgroundImage;
             this.BtnBusca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBusca.Location = new System.Drawing.Point(352, 216);
+            this.BtnBusca.Location = new System.Drawing.Point(352, 214);
             this.BtnBusca.Name = "BtnBusca";
-            this.BtnBusca.Size = new System.Drawing.Size(29, 23);
+            this.BtnBusca.Size = new System.Drawing.Size(23, 23);
             this.BtnBusca.TabIndex = 43;
             this.BtnBusca.UseVisualStyleBackColor = true;
             this.BtnBusca.Click += new System.EventHandler(this.BtnBusca_Click);
@@ -241,11 +244,15 @@
             // 
             // DtgAdotante
             // 
+            this.DtgAdotante.AllowUserToAddRows = false;
+            this.DtgAdotante.AllowUserToDeleteRows = false;
             this.DtgAdotante.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgAdotante.Location = new System.Drawing.Point(12, 255);
             this.DtgAdotante.Name = "DtgAdotante";
+            this.DtgAdotante.ReadOnly = true;
             this.DtgAdotante.Size = new System.Drawing.Size(759, 145);
             this.DtgAdotante.TabIndex = 41;
+            this.DtgAdotante.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgAdotante_RowHeaderMouseClick);
             // 
             // LblTelefone
             // 
@@ -277,7 +284,7 @@
             this.Controls.Add(this.LblEndereco);
             this.Controls.Add(this.TxtEndereco);
             this.Controls.Add(this.BtnCancelar);
-            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.BtnNovoAdotante);
             this.Controls.Add(this.LblCpf);
@@ -309,7 +316,7 @@
         private System.Windows.Forms.Label LblEndereco;
         private System.Windows.Forms.TextBox TxtEndereco;
         private System.Windows.Forms.Button BtnCancelar;
-        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnNovoAdotante;
         private System.Windows.Forms.Label LblCpf;

@@ -15,6 +15,7 @@ namespace _3Bimestre.ONG_Animal
 {
     public partial class FrmAdotante : Form , Menu
     {
+        string queryBusca = "";
         int ID = 0;
         Util Utilidade = new Util();
         NpgsqlConnection conexao;
@@ -29,44 +30,58 @@ namespace _3Bimestre.ONG_Animal
             campos.Add(TxtNome.Text);
             campos.Add(TxtRg.Text);
             campos.Add(TxtTelefone.Text);
-            conexao = new NpgsqlConnection(
-                connectionString: "Server = localhost; Port = 5432; User ID = postgres; Password = postgres; Database = projeto_2b; Pooling = true");
+            conexao = Utilidade.ConectarComDB();
             Utilidade.fillDataGrid("",conexao,DtgAdotante,"adotante");
         }
         private void BtnNovoAdotante_Click(object sender, EventArgs e)
         {
-            if (Utilidade.nenhumCampoVazio(campos))
+            if (!string.IsNullOrEmpty(TxtCidade.Text) &&
+              !string.IsNullOrEmpty(TxtCpf.Text) &&
+              !string.IsNullOrEmpty(TxtEndereco.Text) &&
+              !string.IsNullOrEmpty(TxtEstado.Text) &&
+              !string.IsNullOrEmpty(TxtNome.Text) &&
+              !string.IsNullOrEmpty(TxtRg.Text) &&
+              !string.IsNullOrEmpty(TxtTelefone.Text))
             {
                 Adicionar();
             }
             else
             {
                 MessageBox.Show("Campos obrigatorios não preenchidos!!");
-                foreach(dynamic campo in campos)
-                {
-                    if(string.IsNullOrEmpty(campo))
-                    {
-                        Utilidade.mudarFonteParaNegrito(campo);
-                    }
-                }
+
+                if (string.IsNullOrEmpty(TxtCidade.Text))
+                    LblCidade.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtCpf.Text))
+                    LblCpf.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtEndereco.Text))
+                    LblEndereco.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtEstado.Text))
+                    LblEstado.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtNome.Text))
+                    LblNome.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtRg.Text))
+                    LblRg.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtTelefone.Text))
+                    LblTelefone.Font = new Font(this.Font, FontStyle.Bold);
+
             }
         }
         public void Adicionar()
         {
 
-            string nome = TxtNome.Text;
+           string nome = TxtNome.Text;
             string cpf = TxtCpf.Text;
             string rg = TxtRg.Text;
             string endereco = TxtEndereco.Text;
             string estado = TxtEstado.Text;
             string telefone = TxtTelefone.Text;
             string cidade = TxtCidade.Text;
-            var date = DtpDataNascimento.Value.Date;
-            string query = "INSERT INTO adopter(nome, rg, cpf, data_nascimento, endereco, cidade, estado, telefone)" +
-                              $"VALUES('{nome}', '{rg}', '{cpf}', '{date}', '{endereco}', " +
+            var data = DtpDataNascimento.Value.Date;
+            string query = "INSERT INTO adotante (nome, rg, cpf, data_nascimento, endereco, cidade, estado, telefone)" +
+                              $"VALUES('{nome}', '{rg}', '{cpf}', '{data}', '{endereco}', " +
                               $"'{cidade}', '{estado}', '{telefone}')";
             Utilidade.executarComandoDB(query,conexao);
-            Utilidade.fillDataGrid("", conexao, DtgAdotante, "adotante");
+            Utilidade.fillDataGrid(queryBusca, conexao, DtgAdotante, "adotante");
             Limpar();
         }
 
@@ -101,7 +116,7 @@ namespace _3Bimestre.ONG_Animal
                 TxtTelefone.Text = telefone.ToString();
 
                 BtnEditar.Visible = true;
-                BtnDelete.Visible = true;
+                BtnExcluir.Visible = true;
                 BtnCancelar.Visible = true;
                 BtnNovoAdotante.Visible = false;
 
@@ -111,38 +126,40 @@ namespace _3Bimestre.ONG_Animal
 
         private void BtnBusca_Click(object sender, EventArgs e)
         {
-            this.conexao.Open();
-            string query = $"SELECT * FROM adotante WHERE nome LIKE '%{TxtBusca.Text}%';";
-            Utilidade.fillDataGrid(query, conexao, DtgAdotante, "adotante");
-            this.conexao.Close();
+            queryBusca = $"SELECT * FROM adotante WHERE lower(nome) LIKE lower('%{TxtBusca.Text}%') ORDER BY id";
+            Utilidade.fillDataGrid(queryBusca, conexao, DtgAdotante, "adotante");
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            if (Utilidade.nenhumCampoVazio(campos))
+            if (!string.IsNullOrEmpty(TxtCidade.Text) &&
+               !string.IsNullOrEmpty(TxtCpf.Text) &&
+               !string.IsNullOrEmpty(TxtEndereco.Text) &&
+               !string.IsNullOrEmpty(TxtEstado.Text) &&
+               !string.IsNullOrEmpty(TxtNome.Text) &&
+               !string.IsNullOrEmpty(TxtRg.Text) &&
+               !string.IsNullOrEmpty(TxtTelefone.Text))
             {
                 Editar();
             }
             else
             {
                 MessageBox.Show("Campos obrigatorios não preenchidos!!");
-                List<dynamic> campos_forms = new List<dynamic>()
-                { 
-                    TxtCidade,
-                    TxtCpf,
-                    TxtEndereco,
-                    TxtEstado,
-                    TxtNome,
-                    TxtRg,
-                    TxtTelefone
-                };
-                foreach (string campo in campos_forms)
-                {
-                    if (string.IsNullOrEmpty(campo))
-                    {
-                        Utilidade.mudarFonteParaNegrito(campo);
-                    }
-                }
+
+                if (string.IsNullOrEmpty(TxtCidade.Text))
+                    LblCidade.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtCpf.Text))
+                    LblCpf.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtEndereco.Text))
+                    LblEndereco.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtEstado.Text))
+                    LblEstado.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtNome.Text))
+                    LblNome.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtRg.Text))
+                    LblRg.Font = new Font(this.Font, FontStyle.Bold);
+                if (string.IsNullOrEmpty(TxtTelefone.Text))
+                    LblTelefone.Font = new Font(this.Font, FontStyle.Bold);
 
             }
         }
@@ -157,9 +174,9 @@ namespace _3Bimestre.ONG_Animal
             string telefone = TxtTelefone.Text;
             string cidade = TxtCidade.Text;
             var date = DtpDataNascimento.Value.Date;
-            string query = $"UPDATE adopter SET nome = '{nome}', rg = '{rg}', cpf = '{cpf}', data_nascimento = '{date}', endereco = '{endereco}', cidade = '{cidade}', estado = '{estado}', telefone = '{telefone}' WHERE id = {this.ID}";
+            string query = $"UPDATE adotante SET nome = '{nome}', rg = '{rg}', cpf = '{cpf}', data_nascimento = '{date}', endereco = '{endereco}', cidade = '{cidade}', estado = '{estado}', telefone = '{telefone}' WHERE id = {this.ID}";
             Utilidade.executarComandoDB(query,conexao);
-            Utilidade.fillDataGrid("", conexao, DtgAdotante, "adotante");
+            Utilidade.fillDataGrid(queryBusca, conexao, DtgAdotante, "adotante");
             Limpar();
         }
 
@@ -172,9 +189,9 @@ namespace _3Bimestre.ONG_Animal
         }
         public void Excluir()
         {
-            string query = $"DELETE FROM adopter WHERE id = {this.ID}";
+            string query = $"DELETE FROM adotante WHERE id = {this.ID}";
             Utilidade.executarComandoDB(query,conexao);
-            Utilidade.fillDataGrid("", conexao, DtgAdotante, "adotante");
+            Utilidade.fillDataGrid(queryBusca, conexao, DtgAdotante, "adotante");
             Limpar();
         }
 
@@ -194,7 +211,7 @@ namespace _3Bimestre.ONG_Animal
             TxtCidade.Text = "";
             DtpDataNascimento.Value = DateTime.Now;
             BtnEditar.Visible = false;
-            BtnDelete.Visible = false;
+            BtnExcluir.Visible = false;
             BtnCancelar.Visible = false;
             BtnNovoAdotante.Visible = true;
         }

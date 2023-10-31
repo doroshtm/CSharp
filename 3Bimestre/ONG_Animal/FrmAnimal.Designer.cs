@@ -47,11 +47,11 @@
             this.StripRodape = new System.Windows.Forms.StatusStrip();
             this.tslAnimal = new System.Windows.Forms.ToolStripStatusLabel();
             this.LblDispo = new System.Windows.Forms.Label();
-            this.TxtDisponivel = new System.Windows.Forms.TextBox();
             this.LblGenero = new System.Windows.Forms.Label();
             this.TxtGenero = new System.Windows.Forms.TextBox();
             this.DtpDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.LblDataNascimento = new System.Windows.Forms.Label();
+            this.ChDisponivelAdocao = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAnimal)).BeginInit();
             this.StripRodape.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,7 @@
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Visible = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnExcluir
             // 
@@ -77,6 +78,7 @@
             this.BtnExcluir.Text = "Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = false;
             this.BtnExcluir.Visible = false;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // BtnEditar
             // 
@@ -88,6 +90,7 @@
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
             this.BtnEditar.Visible = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnNovo
             // 
@@ -98,6 +101,7 @@
             this.BtnNovo.TabIndex = 31;
             this.BtnNovo.Text = "Novo animal";
             this.BtnNovo.UseVisualStyleBackColor = false;
+            this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
             // LblVacinacao
             // 
@@ -174,12 +178,14 @@
             // 
             // BtnBusca
             // 
+            this.BtnBusca.BackgroundImage = global::_3Bimestre.Properties.Resources.BtnBusca_BackgroundImage;
             this.BtnBusca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBusca.Location = new System.Drawing.Point(353, 158);
+            this.BtnBusca.Location = new System.Drawing.Point(353, 156);
             this.BtnBusca.Name = "BtnBusca";
-            this.BtnBusca.Size = new System.Drawing.Size(29, 23);
+            this.BtnBusca.Size = new System.Drawing.Size(23, 23);
             this.BtnBusca.TabIndex = 21;
             this.BtnBusca.UseVisualStyleBackColor = true;
+            this.BtnBusca.Click += new System.EventHandler(this.BtnBusca_Click);
             // 
             // TxtBusca
             // 
@@ -190,11 +196,15 @@
             // 
             // DtgAnimal
             // 
+            this.DtgAnimal.AllowUserToAddRows = false;
+            this.DtgAnimal.AllowUserToDeleteRows = false;
             this.DtgAnimal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgAnimal.Location = new System.Drawing.Point(12, 184);
             this.DtgAnimal.Name = "DtgAnimal";
+            this.DtgAnimal.ReadOnly = true;
             this.DtgAnimal.Size = new System.Drawing.Size(501, 130);
             this.DtgAnimal.TabIndex = 19;
+            this.DtgAnimal.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgAnimal_RowHeaderMouseClick);
             // 
             // StripRodape
             // 
@@ -220,13 +230,6 @@
             this.LblDispo.Size = new System.Drawing.Size(122, 13);
             this.LblDispo.TabIndex = 36;
             this.LblDispo.Text = "Disponivel para adoção:";
-            // 
-            // TxtDisponivel
-            // 
-            this.TxtDisponivel.Location = new System.Drawing.Point(461, 82);
-            this.TxtDisponivel.Name = "TxtDisponivel";
-            this.TxtDisponivel.Size = new System.Drawing.Size(174, 20);
-            this.TxtDisponivel.TabIndex = 35;
             // 
             // LblGenero
             // 
@@ -260,17 +263,26 @@
             this.LblDataNascimento.TabIndex = 40;
             this.LblDataNascimento.Text = "Data de Nascimento:";
             // 
-            // FrmPrincipal
+            // ChDisponivelAdocao
+            // 
+            this.ChDisponivelAdocao.AutoSize = true;
+            this.ChDisponivelAdocao.Location = new System.Drawing.Point(461, 88);
+            this.ChDisponivelAdocao.Name = "ChDisponivelAdocao";
+            this.ChDisponivelAdocao.Size = new System.Drawing.Size(15, 14);
+            this.ChDisponivelAdocao.TabIndex = 41;
+            this.ChDisponivelAdocao.UseVisualStyleBackColor = true;
+            // 
+            // FrmAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ChDisponivelAdocao);
             this.Controls.Add(this.LblDataNascimento);
             this.Controls.Add(this.DtpDataNascimento);
             this.Controls.Add(this.LblGenero);
             this.Controls.Add(this.TxtGenero);
             this.Controls.Add(this.LblDispo);
-            this.Controls.Add(this.TxtDisponivel);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnEditar);
@@ -288,9 +300,8 @@
             this.Controls.Add(this.TxtBusca);
             this.Controls.Add(this.DtgAnimal);
             this.Controls.Add(this.StripRodape);
-            this.Name = "FrmPrincipal";
+            this.Name = "FrmAnimal";
             this.Text = "  ";
-            //this.Load += new System.EventHandler(this.FrmAnimal_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAnimal)).EndInit();
             this.StripRodape.ResumeLayout(false);
             this.StripRodape.PerformLayout();
@@ -319,11 +330,11 @@
         private System.Windows.Forms.DataGridView DtgAnimal;
         private System.Windows.Forms.StatusStrip StripRodape;
         private System.Windows.Forms.Label LblDispo;
-        private System.Windows.Forms.TextBox TxtDisponivel;
         private System.Windows.Forms.Label LblGenero;
         private System.Windows.Forms.TextBox TxtGenero;
         private System.Windows.Forms.DateTimePicker DtpDataNascimento;
         private System.Windows.Forms.Label LblDataNascimento;
         private System.Windows.Forms.ToolStripStatusLabel tslAnimal;
+        private System.Windows.Forms.CheckBox ChDisponivelAdocao;
     }
 }
