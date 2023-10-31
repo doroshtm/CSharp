@@ -104,9 +104,9 @@ namespace _3Bimestre.ONG_Animal
             }
             else
             {
-                List<dynamic> campos = new List<dynamic>() { TxtAnimalNome.Text,
-                TxtGenero.Text, TxtAnimalTipo.Text, TxtSituacao.Text,
-                TxtVacinacao.Text, TxtDisponivel.Text };
+                List<dynamic> campos = new List<dynamic>() { TxtAnimalNome,
+                TxtGenero, TxtAnimalTipo, TxtSituacao,
+                TxtVacinacao, TxtDisponivel };
                 MessageBox.Show("Campos obrigatórios não preenchidos!");
                 foreach(dynamic campo in campos)
                 {
@@ -197,7 +197,7 @@ namespace _3Bimestre.ONG_Animal
                 tslAnimal.Text = ex.Message;
             }
         }
-        public void Cancelar()
+        public void Limpar()
         {
             BtnEditar.Visible = false;
             BtnExcluir.Visible = false;
@@ -207,7 +207,7 @@ namespace _3Bimestre.ONG_Animal
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             LimpaCampos();
-            Cancelar();
+            Limpar();
             CarregarDados(null);
         }
         public void Editar()
@@ -219,7 +219,7 @@ namespace _3Bimestre.ONG_Animal
             conexao.Query(sql: update);
             MessageBox.Show("Dados atualizados com sucesso!!!");
             LimpaCampos();
-            Cancelar();
+            Limpar();
             CarregarDados(null);
         }
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -234,28 +234,18 @@ namespace _3Bimestre.ONG_Animal
                 tslAnimal.Text = ex.Message;
             }
         }
-        private bool ConcordouComPopup(string texto, string titulo)
-        {
-            DialogResult resultado = MessageBox.Show("Deseja excluir este registro?",
-                                         "Atenção!!!",
-                                         MessageBoxButtons.YesNo);
-            return resultado == DialogResult.Yes;
-        }
         public void Excluir()
         {
             var delete = $"DELETE FROM animal WHERE id = {this.IdAnimal}";
             conexao.Query(sql: delete);
             MessageBox.Show("Animal excluído com sucesso!!!"); 
             LimpaCampos();
-            Cancelar();
+            Limpar();
             CarregarDados(null);
         }
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("Deseja excluir este registro?",
-                                                     "Atenção!!!",
-                                                     MessageBoxButtons.YesNo);
-            if (resultado == DialogResult.Yes)
+            if (Utilidade.ConcordouComPopup("Deseja excluir esse registro?", "Atenção!!!"))
             {
                 try
                 {
@@ -269,19 +259,6 @@ namespace _3Bimestre.ONG_Animal
             }
         }
 
-        private void FrmAnimal_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Frm_Load_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

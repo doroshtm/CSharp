@@ -70,7 +70,6 @@
             this.DtpDataNascimento.Name = "DtpDataNascimento";
             this.DtpDataNascimento.Size = new System.Drawing.Size(200, 20);
             this.DtpDataNascimento.TabIndex = 61;
-            this.DtpDataNascimento.ValueChanged += new System.EventHandler(this.DtpDataNascimento_ValueChanged);
             // 
             // LblRg
             // 
@@ -80,7 +79,6 @@
             this.LblRg.Size = new System.Drawing.Size(24, 13);
             this.LblRg.TabIndex = 60;
             this.LblRg.Text = "Rg:";
-            this.LblRg.Click += new System.EventHandler(this.LblGenero_Click);
             // 
             // TxtRg
             // 
@@ -88,7 +86,6 @@
             this.TxtRg.Name = "TxtRg";
             this.TxtRg.Size = new System.Drawing.Size(174, 20);
             this.TxtRg.TabIndex = 59;
-            this.TxtRg.TextChanged += new System.EventHandler(this.TxtGenero_TextChanged);
             // 
             // LblEndereco
             // 
@@ -258,7 +255,6 @@
             this.LblTelefone.Size = new System.Drawing.Size(52, 13);
             this.LblTelefone.TabIndex = 64;
             this.LblTelefone.Text = "Telefone:";
-            this.LblTelefone.Click += new System.EventHandler(this.label1_Click);
             // 
             // TxtTelefone
             // 
@@ -266,7 +262,6 @@
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.Size = new System.Drawing.Size(105, 20);
             this.TxtTelefone.TabIndex = 63;
-            this.TxtTelefone.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FrmAdotante
             // 
@@ -299,7 +294,6 @@
             this.Controls.Add(this.DtgAdotante);
             this.Name = "FrmAdotante";
             this.Text = "Pessoas que ja doaram";
-            this.Load += new System.EventHandler(this.FrmAdotante_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAdotante)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

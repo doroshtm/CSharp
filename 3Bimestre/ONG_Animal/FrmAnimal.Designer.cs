@@ -211,7 +211,6 @@
             this.tslAnimal.Name = "tslAnimal";
             this.tslAnimal.Size = new System.Drawing.Size(118, 17);
             this.tslAnimal.Text = "toolStripStatusLabel1";
-            this.tslAnimal.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // LblDispo
             // 

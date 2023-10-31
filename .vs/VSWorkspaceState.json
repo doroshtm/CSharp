@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\3Bimestre",
+    "\\3Bimestre\\ONG_Animal",
+    "\\3Bimestre\\Planetas"
   ],
-  "SelectedNode": "\\TercBimestre.sln",
+  "SelectedNode": "\\3Bimestre\\ONG_Animal\\Ferramentas.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -15,7 +15,7 @@ using ONG_Animal;
 
 namespace _3Bimestre.ONG_Animal
 {
-    public abstract partial class FrmPrincipal : Form, Menu
+    public partial class FrmPrincipal : Form, Menu
     {
         Util Utilidade= new Util();
         NpgsqlConnection conexao;
@@ -27,7 +27,7 @@ namespace _3Bimestre.ONG_Animal
             InitializeComponent();
             conexao = Utilidade.ConectarComDB();
 
-            Utilidade.ExecutarComandoDB("SELECT * FROM adocao;",conexao,DtgAdocao);
+            Utilidade.fillDataGrid("SELECT * FROM adocao;",conexao,DtgAdocao,"adotante");
             fillDataGrid();
 
             Listas();
@@ -167,7 +167,7 @@ namespace _3Bimestre.ONG_Animal
                 "FROM adocao AS ac ,INNER JOIN animal AS an ON ac.animal = an.id ,INNER JOIN adotante AS ad ON ac.adotante = ad.id," +
                 $"WHERE ad.nome LIKE '%{busca}%' or an.nome LIKE '%{busca}%';";
 
-            Utilidade.ExecutarComandoDB(query,conexao,DtgAdocao);
+            Utilidade.fillDataGrid(query,conexao,DtgAdocao,"adotante");
         }
 
         public void Adicionar()
@@ -179,11 +179,11 @@ namespace _3Bimestre.ONG_Animal
             string informacoes = this.CblInformaçoes.Text;
             string query = "INSERT INTO adotante(animal, adotante, status, informacoes)" +
                               $"VALUES('{animal}','{adotante}','{Status}','{informacoes}';";
-            Utilidade.ExecutarComandoDB(query, conexao, DtgAdocao);
+            Utilidade.fillDataGrid(query, conexao, DtgAdocao,"adotante");
         }
-        public abstract void Editar();
-        public abstract void Excluir();
-        public abstract void Cancelar();
+        public void Editar() { }
+        public void Excluir() { }
+        public void Limpar() { }
         private void CblAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
